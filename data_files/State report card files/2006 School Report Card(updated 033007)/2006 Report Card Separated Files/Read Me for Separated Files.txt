@@ -1,0 +1,33 @@
+Filename	   Content		Fields on Report Card Layout (column A)
+-----------	---------------		---------------------------------------
+rc06p1.txt	General info 		field 1-172
+rc06p2.txt	ACT			field 1, field 173-192
+rc06p3.txt	Instructional Setting	field 1, field 193-280
+rc06p4.txt	Teacher/Administor	field 1, field 281-358	
+rc06p5.txt	Finance			field 1, field 359-425
+rc06p6.txt	Pct Not Tested		field 1, field 426-581
+rc06p7.txt	Overall Performance	field 1, field 582-623
+rc06p8_txt	Grade 2 Test		field 1, field 624-683
+rc06p9.txt	ISAT Grade 3		field 1, field 684-1163
+rc06p10.txt	ISAT Grade 4		field 1, field 1164-1883
+rc06p11.txt	ISAT Grade 5		field 1, field 1884-2363
+rc06p12.txt	ISAT Grade 6		field 1, field 2364-2843
+rc06p13.txt	ISAT Grade 7		field 1, field 2844-3563
+rc06p14.txt	ISAT Grade 8		field 1, field 3564-4043
+rc06p15.txt	PSAE			field 1, field 4044-4778
+rc06p16.txt	IMAGE Grade 3		field 1, field 4779-5226
+rc06p17.txt	IMAGE Grade 4		field 1, field 5227-5674
+rc06p18.txt	IMAGE Grade 5		field 1, field 5675-6122
+rc06p19.txt	IMAGE Grade 6		field 1, field 6123-6570
+rc06p20.txt	IMAGE Grade 7		field 1, field 6571-7018
+rc06p21.txt	IMAGE Grade 8		field 1, field 7019-7466
+rc06p22.txt	IMAGE Grade 11		field 1, field 7467-7914
+rc06p23.txt	IAA Grade 3		field 1, field 7915-8330
+rc06p24.txt	IAA Grade 4		field 1, field 8331-8954
+rc06p25.txt	IAA Grade 5		field 1, field 8955-9370
+rc06p26.txt	IAA Grade 6		field 1, field 9371-9786
+rc06p27.txt	IAA Grade 7		field 1, field 9787-10410
+rc06p28.txt	IAA Grade 8		field 1, field 10411-10826
+rc06p29.txt	IAA Grade 11		field 1, field 10827-11450
+rc06p30.txt	AYP			field 1, field 11451-11736
+rc06p31.txt	Code			field 1, field 11737-11739

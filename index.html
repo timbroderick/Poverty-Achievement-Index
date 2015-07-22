@@ -1,0 +1,2469 @@
+<!DOCTYPE HTML>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width" />
+
+	<title>
+		Low-income students and school performance
+	</title>
+
+	<link href="static/styles/normalize.css" rel="stylesheet" type="text/css">
+	<link href="static/styles/smoothness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+	<link href="static/styles/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="static/styles/webicons.css" rel="stylesheet" type="text/css">
+	<link href="static/styles/dataTables.responsive.css" rel="stylesheet" type="text/css" >
+	<link href="static/styles/jquery.dataTables.css" rel="stylesheet" type="text/css" >
+
+
+
+	<script type="text/javascript" src="static/scripts/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="static/scripts/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="static/scripts/jquery-ui-1.10.3.custom.min.js"></script>
+	<script type="text/javascript" src="static/scripts/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="static/scripts/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="static/scripts/dataTables.responsive.js"></script>
+	<script type="text/javascript" src="static/scripts/highcharts.js"></script>
+<!--	<script src="static/scripts/d3.js" charset="utf-8"></script>
+	<script type="text/javascript" src="static/scripts/d3-tip.js"></script> -->
+	<link href="static/styles/tims.css" rel="stylesheet" type="text/css">
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-39205744-20', 'auto');
+	  ga('send', 'pageview');
+	</script>
+
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+	var gads = document.createElement('script');
+	gads.async = true;
+	gads.type = 'text/javascript';
+	var useSSL = 'https:' == document.location.protocol;
+	gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+	var node = document.getElementsByTagName('script')[0];
+	node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+	googletag.defineSlot('/30709998/dailyherald.com/news/education', [[300, 250]], 'div-gpt-ad-1433427565153-0').addService(googletag.pubads());
+	googletag.pubads().enableSingleRequest();
+	googletag.enableServices();
+});
+
+</script>
+
+	<style>
+		.ui-autocomplete {
+		max-height: 100px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+		}
+	</style>
+
+</head>
+
+<body data-spy="scroll" data-target=".navspy">
+
+<div class="navbar-sm">
+   <div class="navbar-primary">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="container-fluid">
+<!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <img alt="Brand" src="static/images/dh.png">
+<!--  <p class="navbar-text"> Low income and schools</p> -->
+	    </div>
+
+	    <div class="collapse navbar-collapse navspy" id="my-navbar-collapse">
+	      <ul class="nav navbar-nav">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+		        <li><a href="#view"> View the data</a></li>
+		        <li><a href="#how"> How we did it</a></li>
+		        <li><a href="#elem"> Elementary schools</a></li>
+		        <li><a href="#hs"> High schools</a></li>
+		        <li><a href="#notes"> Notes</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+
+	    </div><!-- /.navbar-collapse -->
+	 </div><!-- /.container-fluid -->
+</nav>
+</div>
+</div>
+
+
+<div class="jumbotron" style="background-image: url(static/images/classroom.jpg);">
+  <div class="container" id="jumboTop">
+    <!--<h1 class="page-header">The test of poverty</h1>-->
+    <h4 class="page-header">POVERTY-ACHIEVEMENT INDEX:<br>A Daily Herald and WBEZ analysis of the link between poverty and school achievement</h4>
+  </div>
+</div>
+
+
+<div class="container">
+
+<br id="view"><br>
+<div class="row" id="rangesREP">
+	<div class="col-md-12">
+		<h3>Viewing results by year and income range</h3>
+		<p><strong>Use the dropdowns</strong> to view the results. You may view elementary or high school results by income range from 2004 through 2014.</p>
+		<p><a href="#" id="rangehide">Or, click here to find results by district</a> and view school results dating back to 2004, the earliest year available.</p>
+
+		<div class="row">
+			<div class="col-md-12">
+				<p><strong>First, select either elementary or high schools.</strong>
+				<p><select name="listlevel" size="2" id="listlevel">
+				<option value='elem' >Elementary schools</option>
+				<option value='hs' >High schools</option>
+				</select>
+			<input type="button" name="levelSUBMIT" id="levelSUBMIT" onclick="console.log( $('#lowincome').val() );" value="Select" ></form></p>
+			</div>
+		</div>
+
+		<div class="row" id="theseoptions">
+			<div class="col-sm-12 col-md-4">
+				<p><strong>Select a year... </strong></p>
+				<select name="listyear" size="1" id="listyear">
+				<option value='2014' >2014</option>
+				<option value='2013' >2013</option>
+				<option value='2012' >2012</option>
+				<option value='2011' >2011</option>
+				<option value='2010' >2010</option>
+				<option value='2009' >2009</option>
+				<option value='2008' >2008</option>
+				<option value='2007' >2007</option>
+				<option value='2006' >2006</option>
+				<option value='2005' >2005</option>
+				<option value='2004' >2004</option>
+				</select>
+			</div>
+			<div class="col-sm-12 col-md-4" id="putHere">
+				<p id="levelOptions"></p>
+			</div>
+			<div class="col-sm-12 col-md-4 columns">
+			<p><strong>...and press submit.</strong></p>
+				<input type="button" name="searchSUBMIT" id="searchSUBMIT" onclick="console.log( $('#lowincome').val() );" value="Submit" >
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="schLIST" class="col-md-12">
+				<div id="schHED"></div>
+				<div id="addLIST">
+					<div id="schoolsLIST"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<div class="row" id="districtsREP">
+	<div class="col-md-12">
+
+		<div class="row">
+			<div id="distSELECT" class="col-md-12">
+				<h4><strong><a href="http://www.dailyherald.com/topics/generations-at-risk/" target="_blank">Click here</a></strong> to find all the stories in our Generations at Risk series.</h4>
+				<br><hr><br>
+				<h3>Find your school</h3>
+				<p>Our <strong>Daily Herald Poverty-Achievement Index</strong> compares schools with similar percentages of low-income students instead of comparing, for instance, a school with mostly poor students to a school with mostly non-poor students. <a href="#notes">Click here</a> to learn more about the index.</p>
+				<p>With our interactive database, you can ...</p>
+					<p><ul>
+						<li><strong>Find the schools</strong> in your district.</li>
+						<li><strong>Click the name of any school</strong> in the list to view interactive graphics with key statistics going back to 2004, the earliest year available.</li>
+						</ul></p>
+				<p><strong>In the search box below,</strong> type in a school district's three-digit numbers (002 for District 2, 046 for District 46):</p>
+				<div class="row">
+					<div class="col-sm-12 col-md-6">
+						<div id="project-label">
+							<input id="project" />
+							<input type="hidden" id="project-id" />
+						</div>
+						<p></p>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<p>Select the district from the dropdown list then click <input type="button" name="distSEARCH" id="distSEARCH" onclick="console.log( $('#project').val() );" value="Submit" ></p>
+					</div>
+				</div>
+				<p><a href="#" id="districtshide">Or, click here to find results by year</a> and income range.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="distLIST" class="col-md-12">
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="detailToggle" class="col-md-12">
+				<div id="schTITLES"></div>
+				<div id="elemMEtitle">
+					<h4>Elementary school's composite meets/exceeds score and percent of low-income and minority students</h4>
+					<div id="elemMEchart"></div>
+				</div>
+				<div id="Zelemtitle">
+					<h4>Elementary school's Poverty-Achievement Index score</h4>
+					<div id="ZelemChart"></div>
+				</div>
+				<div id="hsMEtitle">
+					<h4>High school's composite meets/exceeds score and percent of low-income and minority students</h4>
+					<div id="hsMEchart"></div>
+				</div>
+				<div id="Zhstitle">
+					<h4>High school's Poverty-Achievement Index score</h4>
+					<div id="ZhsChart"></div>
+				</div>
+				<div class="table-responsive">
+					<div id="schDETAIL"></div>
+				</div>
+				<div id="schGRADES"></div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+
+		<br><hr><br>
+				<div class="row row-centered">
+			<div class="col-md-3 col-centered">
+				<!-- dailyherald.com/news/education -->
+				<div id='div-gpt-ad-1433427565153-0'>
+					<script type='text/javascript'>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1433427565153-0'); });
+					</script>
+				</div>
+ 			</div>
+		</div>
+
+		<br id="how"><hr><br>
+		<h3>How we calculated the Poverty-Achievement Index</h3>
+		<p>
+			<ul>
+				<li>We took Illinois School Report Card results from 2004 to 2014.</li>
+				<li>For each year, we separated schools that reported ISAT results (elementary and middle schools) from high schools that reported PSAE results.</li>
+				<li>We separated elementary schools into 10 income ranges (0-9.9%, 10-19.9% ...) and high schools into eight ranges (0-12.4%, 12.5-25% ...). <br><br>
+					<img src="static/lowincome/images/ranges.jpg" class="img-responsive center-block"><br></li>
+					<li>Then we calculated the <a href="#aboutDATA">average composite meets/exceeds</a> ISAT and PSAE scores for each income range in each year.</li>
+				</ul><p>
+		<p>With those averages, we were able to rank each school based on how much higher or lower it was from its income range's average - the Daily Herald Poverty-Achievement Index.</p>
+		<p>A school with a rank of 0 is exactly average for its range. Schools above average have a positive Poverty-Achievement Index score, schools below average would have a negative score.</p>
+
+
+		<br id="elem"><hr><br>
+		<h3>Elementary school results</h3>
+		<p>The interactive graphic below demonstrates how deeply stratified Illinois schools are by income. 
+		It shows the average composite ISAT meets/exceeds score for each income range, with 0-9.9% being elementary schools with less than 10% of their student population qualifying as low-income.</p>
+		<p>Mouse over the chart to see results for each income level by year.</p>
+		<div id='ELEMchart'></div>
+		<p></p>
+		<p class="source">Note: The shaded areas in the chart indicate differences in the ISAT tests. Tests were changed starting in 2006 to comply with No Child Left Behind, and minimum standards for elementary schools were adjusted by the state starting in 2013. <a href="#aboutISAT">Click here</a> for more information about ISAT scores.</p>
+		<h4>Low income and elementary schools</h4>
+		<p>In examining elementary schools, we found a strong correlation between a school's percentage of low-income students and composite ISAT scores.</p>
+		<p>The charts below illustrate the correlation between poverty and test scores. Each blue dot represents a school in Illinois. The black line is a trend line.</p>
+		<img src="static/lowincome/images/elemreg.jpg" class="img-responsive center-block"><p></p>
+		<p>The graphs show that the greater the percentage of low-income students in a school, the lower the school's test scores. <a href="elem2014index.html" target="_blank">Click here</a> to view an interactive graphic of 2014 elementary schools and <a href="elem2004index.html" target="_blank">here</a> for the 2004 version.</p>
+		<br id="hs"><hr><br>
+		<h3>High school results</h3>
+		<p>High school PSAE scores show stratification in the same way as elementary schools. </p>
+		 <div id='HSchart'></div>
+		<p></p>
+		<p>Because of a smaller sample size, we divided high schools into eight groups instead of 10, with 0-12.4% being schools with less than 12.5% of their student population qualifying as low-income. Minimum standards were not adjusted for high schools as they were with for elementary schools.<p>
+		<h4>Percentage-point gap</h4>
+		<p>While high schools seem to have made progress since 2004, schools at the wealthiest income levels generally had more students making minimum standards than schools at the poorest income level.</p>
+		<p>Here's the percentage-point gap between average composite meets/exceeds PSAE score for the wealthiest income range (0-12.4% low income) and the poorest income range (87.5-100% low income).</p>
+		<div id='HSgap'></div>
+		<p></p>
+		<p>The gap between the wealthiest and poorest income ranges grew larger in 2014 compared to 2004.</p>
+		<h4>Low income and high schools</h4>
+		<p>The correlation between scores and income levels for high schools is also strong.</p>
+		<img src="static/lowincome/images/hsreg.jpg" class="img-responsive center-block"><p></p>
+		<p><a href="hs2014index.html" target="_blank">Click here</a> to view an interactive graphic of 2014 high schools and <a href="hs2004index.html" target="_blank">click here</a> for the 2004 version.</p>
+		<p></p>
+		<br><hr><br>
+
+	</div>
+</div>
+
+
+<!-- End of container -->
+
+</div>
+
+<br id="notes">
+<div id="footStyle">
+	<div class="row">
+		<div class="col-xs-12 col-md-1 col-lg-2"></div>
+		<div class="col-xs-12 col-md-10 col-lg-8">
+			<h3>Notes and clarifications</h3>
+			<p></p>
+			<p><strong><a href="https://github.com/dailyherald" target="_blank">Click here</a></strong> to find all the data and files for this web app.</p>
+			<h4>About the Poverty-Achievement Index</h4>
+			<p>Our Poverty-Achievement Index is based on a statistical technique called a Z score that shows how far something is from an average.</p>
+			<p><a id="learnz" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Click here to learn more</a> about z scores.</p>
+			<div class="collapse well" id="collapseExample">
+				<br>
+				<h4>Z scores and the normal curve</h4>
+				<p>Z scores are based on the idea of the normal curve: Generally if you have enough data, most of it will fall around an average. The rest will distribute on either side of that average.</p>
+				<img src="static/lowincome/images/normalcurve.jpg" class="img-responsive center-block"><p></p>
+				<p>We can measure how spread out the data is using standard deviations. A Z score is simply the number of standard deviations something is from the average.</p>
+				<p>So, an item that is one standard deviation higher than the average has a Z score (or Index score) of 1. An item that is one standard deviation lower than the average has an Index score of -1. And an item that is exactly average has an Index score of 0.</p>
+				<h4>How we used them</h4>
+				<p>To make a more apples-to-apples comparison of Illinois schools, we sorted schools into ranges based on the percentage of low-income students they serve. Then we calculated the average composite ISAT and PSAE scores for each range.<br><br>
+				<img src="static/lowincome/images/ranges.jpg" class="img-responsive center-block"></p>
+				<p>With those averages, we were able to sort each school based on how many points higher or lower it was from its income range’s average - the Z score.</p>
+				<p>Our primary goal was to use them to see how a school performed compared to those with similar levels of low-income students.</p>
+				<p>Below is a chart showing Tefft Middle School's Z scores since 2006 compared to all schools with similar percentages of low-income students.<br><br>
+				<img src="static/lowincome/images/teftcht.jpg" class="img-responsive center-block"></p>
+				<p>We see that Tefft has been above average for several years.</p>
+				<p>While we've sought to provide a more apples-to-apples look at Illinois schools with our Poverty-Achievement Index, correlation itself is not causation. Correlation is like a red flag that travels with a group - it may signal something significant but groups carry a lot of flags. The group itself needs to be examined to determine that significance.</p>
+				<p>In addition, income level is only one measurement. Other factors, such as the percentage of students who aren’t fluent in English, can affect test results as well.</p>
+				<h4>When the curve isn't normal</h4>
+				<p>Of course, the perfect normal curve isn't often found in nature. Very small sample sizes can skew the average.</p>
+				<p>For instance, take a set of four people. Three of them have $50 and one has $100,000. The average for those four people is $25,037.5, which is mathematically accurate but not a very accurate description of the four people. </p>
+				<p>But if you had 1,000 people, with 999 of them having $50 and only one with $100,000, the average for that group would be $149.95 - far closer to being an accurate description.</p>
+				<div class="table-responsive">
+				<p>Here are the averages and medians for eleentary and high schools for each 2014 low income range.</p>
+					<table class="table table-striped"><thead>
+					<tr><th>Elem. income ranges</th><th>Avg. ISAT</th><th>Median ISAT</th><th>H.S. income ranges</th><th>Avg. PSAE</th><th>Median PSAE</th></tr>
+					<tr><td>0- 9.9%</td><td>84.0</td><td>84.9</td><td>0 – 12.4%</td><td>74.2</td><td>74.6</td></tr>
+					<tr><td>10-19.9%</td><td>78.0</td><td>78.6</td><td>12.5 – 24.9%</td><td>67.2</td><td>68.8</td></tr>
+					<tr><td>20-29.9%</td><td>72.3</td><td>71.8</td><td>25 – 37.4%</td><td>58.2</td><td>57.9</td></tr>
+					<tr><td>30-39.9%</td><td>65.5</td><td>65.1</td><td>37.5 – 49.9%</td><td>51.3</td><td>50.3</td></tr>
+					<tr><td>40-49.9%</td><td>60.5</td><td>60.5</td><td>50 – 62.4%</td><td>44.9</td><td>44.8</td></tr>
+					<tr><td>50-59.9%</td><td>56.2</td><td>56.2</td><td>62.5 – 75%</td><td>36.7</td><td>35.4</td></tr>
+					<tr><td>60-69.9%</td><td>52.0</td><td>51.2</td><td>75 – 87.4%</td><td>34.7</td><td>32.4</td></tr>
+					<tr><td>70-79.9%</td><td>47.2</td><td>46.5</td><td>87.5 – 100%</td><td>21.8</td><td>18.0</td></tr>
+					<tr><td>80-89.9%</td><td>42.5</td><td>41.4</td><td></td><td></td><td></td></tr>
+					<tr><td>90-100%</td><td>39.0</td><td>38.5</td><td></td><td></td><td></td></tr>
+					</tbody></table>
+					</div>
+			</div>
+			<br id="aboutISAT"><hr><br>
+			<h4>About the ISATs</h4>
+			<p>The ISAT test changed in 2006.
+				<ul>
+					<li>In 2004 and 2005, grades 3, 5 and 8 took ISAT tests in reading and math, while grades 4 and 7 were tested in science. (<i>PDF: <a href="http://www.isbe.net/assessment/pdfs/isat_interpretive_guide_05.pdf" target="_blank">Guide to the 2005 Illinois State Assessment</a></i>, page 3. "In Spring 2005, students in grades 3, 5, and 8 took Illinois Standards Achievement Tests (ISAT) in reading and mathematics. Students in grades 4 and 7 took ISAT tests in science." )</li>
+					<li>Starting in 2006, a different ISAT test was given in grades 3 through 8. Questions were written by Harcourt Assessment, Inc., and Illinois teachers. New grading scales and minimum standards were introduced that resulted in higher meets/exceeds levels than in previous years but little actual improvement to students' scores.<br>
+						(<i>PDF: <a href="http://www.isbe.net/assessment/pdfs/ISAT_Interp_Guide_2006.pdf" target="_blank">Guide to the 2006 Illinois State Assessment</a></i>, Page 5: "Starting with the 2005–2006 administration, the ISAT includes a combination of items produced by Harcourt Assessment, Inc., (Harcourt) and items written by Illinois teachers." And Page 6: "All ISAT scores are now expressed on a “vertical” or continuous scale across grades 3 through 8 in reading and mathematics, and in grades 4 and 7 in science. ... Because student scores will be reported on new scales, the numerical values of the cut scores representing proficiency levels need to change as well.")  (<i>PDF: <a href="http://ccsr.uchicago.edu/downloads/3030threeerasfullreportwithsearleacknowledgment.pdf" target="_blank">University of Chicago 2011 study</a></i>, Page 14, Figure 2: "Students with the same scores in fourth and ninth grade have different scores in seventh grade." And Chapter 3: "Test Score Trends in the Elementary/Middle Grades.")</li>
+				</ul>
+			To highlight the difference between the two tests, 2004 results are labeled as “pre-NCLB ISAT.” We’ve also highlighted scores starting in 2013, the year minimum standards were changed to more closely align with college-readiness and common core standards. </p>
+			<p>Although results by income were consistent with other years, 2005 was a transitional testing year that does not adequately represent results from pre-NCLB testing.</p>
+			<br id="select"><hr><br>
+			<h4>Testing or lottery-based schools</h4>
+			<p>Many high-ranking schools have selective enrollment.  Others, such as some magnet or charter schools, involve some measure of choice. We’ve marked these schools with an asterisk.</p>
+			<br id="aboutDATA"><hr><br>
+			<h4>About the data</h4>
+			<p>Illinois defines <a href="http://www.illinoisreportcard.com/State.aspx?source=StudentCharacteristics&source2=LowIncome&Stateid=IL" target="_blank">low-income students</a> as being eligible to receive free or reduced-price lunches, living in substitute care, or coming from families receiving public aid.</p>
+			<p>The composite meets/exceeds score for each school is the percentage of students who meet or exceed standards in reading and math. A meets/exceeds score of 60 means 60 percent of the students at a school achieved at or above the minimum score set for meeting state standards.</p>
+			<p>Data from the Illinois School Report Card is collected by the state from school districts. Information for some charter networks in Chicago is reported as an overall average instead of individual schools. We supplemented that with information from <a href="http://cps.edu/SchoolData/Pages/SchoolData.aspx" target="_blank">Chicago</a> for those schools and noted the differences by the way the schools were identified:
+			<ul>
+				<li>Schools labeled only as CHARTER SCH were individual schools whose data is included in the state's report card.</li>
+				<li>CHARTER NET SCH is data for schools obtained from the Chicago Public Schools website and through a Freedom of Information Act request to CPS.</li>
+			</ul>
+			<p>We excluded scores from alternative schools.</p>
+			<p>All the data, from the state and the city, can include uncorrected errors, incomplete information and in some cases outright omissions. At best, the information should be considered a fairly definitive snapshot in time.</p>
+			<p>Data is from Illinois and Chicago government agencies. This report will be updated periodically. <strong>If you see spot errors. please <a href="mailto:tbroderick@dailyherald.com">contact us</a>.</strong></p>
+			<p>Here are some specific problems we've found as well as adjustments we've made:
+				<ul>
+					<li>2005 data was substituted for missing or likely incomplete 2006 low-income figures for the following schools: Aspira Chtr-Ramirez Hs, CICS-Bucktown, CICS-Prarie, CICS-Wasthington Park, CICS-Basil, CICS-West Belden, Univ of Chgo Chtr-Nko, UNO Chtr-Paz and UNO Chtr-Tamayo.</li>
+					<li>2007 low-income figures were substituted for missing or likely incomplete 2008 low-income data for the following schools: CICS-AVALON/So Shore and Shabazz Chtr-Dusable</li>
+					<li>Data for the following schools in the years noted was not included because of missing or incomplete tallies. 2006: Aspira Chtr-Haugan, CICS-Northtown, CICS-Wrightwood, Shabazz Chtr-Sizemore, Shabazz Chtr-Shabazz and Unv of Chgo chtr-Donoghue. 2008: Unv of Chgo Chtr-Woodlawn and Learn Chtr Butler.</li>
+					<li>Waukegan CUSD 60's percent low-income in 2013 and 2012 are likely too low, based on the numbers reported in 2011 and in 2014. 2014 percent low income values were used for 2013.</li>
+					<li>Academic centers that serve elementary students but are located in high schools do not report separate low-income values. Their low-income values reflect the entire school.</li>
+					<li>For West Chicago District 33, low income numbers for 2013 and 2014 are likely too low. When accurate numbers become available, their information will be updated.</li>
+					<li>The 2014 percent low-income numbers for Township H.S. District 214 are from the district.</li>
+					<li>The 2014 percent low-income number for Sparta Primary Attendance Center was likely misreported and the 2013 value was substituted. Edinburg Jr. High School's 2014 low-income numbers may be incorrect have not been included.</li>
+					<li>Some schools in McLean County USD 5 were missing 2014 ISAT results.</li>
+				</ul>
+			</p>
+			<p class="source">Design and data analysis by Daily Herald News Art Editor <a href="mailto:tbroderick@dailyherald.com">Tim Broderick</a>. Thanks to <a href="http://www.neiu.edu/academics/college-of-arts-and-sciences/faculty/francisco-x-gaytan" target="_blank" >Francisco X Gaytan PhD, MSW</a>, <a href="http://www.luc.edu/math/ftfaculty/longmanbret.shtml" target="_blank" >Professor Bret Longman</a> and <a href="http://www.wbez.org/users/llutton-0" target="_blank">Linda Lutton</a> for their guidance on statistics and schools. Find all the data and files for this <a href="https://github.com/dailyherald" target="_blank">here.</a></p>
+		</div>
+		<div class="col-xs-12 col-md-1 col-lg-2"></div>
+	</div>
+</div>
+<div id="underfoot"></div>
+
+<script>
+
+$( "#addLIST" ).hide();
+$( "#theseoptions" ).hide();
+
+
+//chooses whether to view by range and date or by district and school
+
+
+
+$('#rangesREP').hide();
+
+$("#rangehide").click(function() {
+       $('#rangesREP').hide();
+       $('#districtsREP').show();
+      return false
+  });
+
+$("#districtshide").click(function() {
+       $('#rangesREP').show();
+       $('#districtsREP').hide();
+      return false
+  });
+
+//controls the dropdowns for the search by year option, whether they're elementary school or high school
+
+$('#listlevel').click(function() {
+	$( "#theseoptions" ).show();
+	if( $('#listlevel').val() == 'elem' ) {
+		console.log( $('#listlevel').val() );
+		$( "#levelOptions" ).remove();
+		var addlevelOptions = '';
+		addlevelOptions += '<p id="levelOptions"><strong>...select a results range or category... </strong><p><select name="lowincome" size="1" id="lowincome"><option value="_90" >90%-100%</option><option value="_80" >80%-89.9%</option><option value="_70" >70%-79.9%</option><option value="_60" >60%-69.9%</option><option value="_50" >50%-59.9%</option><option value="_40" >40%-49.9%</option><option value="_30" >30%-39.9%</option><option value="_20" >20%-29.9%</option><option value="_10" >10%-19.9%</option><option value="_0" >0%-9.9%</option></select></p>'
+		$('#putHere').html(addlevelOptions);
+
+	} else if( $('#listlevel').val() == 'hs' ){
+		console.log( $('#listlevel').val() );
+		$( "#levelOptions" ).remove();
+		var addlevelOptions = '';
+		addlevelOptions += '<p id="levelOptions"><strong>...select a results range or category... </strong><p><select name="lowincome" size="1" id="lowincome"><option value="_87.5" >87.5%-100%</option><option value="_75" >75%-87.5%</option><option value="_62.5" >62.5%-75%</option><option value="_50" >50%-62.5%</option><option value="_37.5" >37.5%-50%</option><option value="_25" >25%-37.5%</option><option value="_12.5" >12.5%-25%</option><option value="_0" >0%-12.5%</option></select></p>'
+		$('#putHere').html(addlevelOptions);
+
+	} else {
+
+		console.log( "needs level selected" );
+	};
+
+// Returns elementary school list for each income level
+
+$('#searchSUBMIT').click(function() {
+	var jsonLEVEL = $('#listlevel').val();
+	var jsonFILE = $('#lowincome').val();
+	var jsonYEAR = $('#listyear').val();
+	$.getJSON('static/lowincome/' + jsonLEVEL + jsonYEAR + jsonFILE + '.json', function(data){
+		console.log( jsonFILE );
+		$( "#addLIST" ).show();
+
+		if( $('#listlevel').val() == 'elem' ) {
+
+			if(jsonFILE == '_0') {
+				var hedLevel = "0-10% low-income";
+			} else if(jsonFILE == '_10') {
+				var hedLevel = "10-20% low-income";
+			} else if(jsonFILE == '_20') {
+				var hedLevel = "20-30% low-income";
+			} else if(jsonFILE == '_30') {
+				var hedLevel = "30-40% low-income";
+			} else if(jsonFILE == '_40') {
+				var hedLevel = "40-50% low-income";
+			} else if(jsonFILE == '_50') {
+				var hedLevel = "50-60% low-income";
+			} else if(jsonFILE == '_60') {
+				var hedLevel = "60-70% low-income";
+			} else if(jsonFILE == '_70') {
+				var hedLevel = "70-80% low-income";
+			} else if(jsonFILE == '_80') {
+				var hedLevel = "80-90% low-income";
+			} else if(jsonFILE == '_90') {
+				var hedLevel = "90-100% low-income";
+			} else {
+					console.log( "what level is this" );
+			};
+
+			var distHTML1 = "";
+			distHTML1 += '<br><h3 align=left>Elementary schools in the ' + hedLevel + ' range from ' + jsonYEAR + '</h3>';
+			distHTML1 += '<p><strong>The chart below is sortable,</strong> allowing you to compare composite meets/exceeds scores for elementary schools with a similar percent of low-income students. To sort the list,</strong> simply click the heading for each column - once for ascending order, again for descending order.</p>';
+
+
+		} else if( $('#listlevel').val() == 'hs' ){
+
+
+// Returns High School list for each income level
+
+			if(jsonFILE == '_0') {
+				var hedLevel = "0-12.5% low-income";
+			} else if(jsonFILE == '_12.5') {
+				var hedLevel = "12.5-25% low-income";
+			} else if(jsonFILE == '_25') {
+				var hedLevel = "25-37.5% low-income";
+			} else if(jsonFILE == '_37.5') {
+				var hedLevel = "37.5-50% low-income";
+			} else if(jsonFILE == '_50') {
+				var hedLevel = "50-62.5% low-income";
+			} else if(jsonFILE == '_62.5') {
+				var hedLevel = "62.5-75% low-income";
+			} else if(jsonFILE == '_75') {
+				var hedLevel = "75-87.5% low-income";
+			} else if(jsonFILE == '_87.5') {
+				var hedLevel = "87.5-100% low-income";
+			} else {
+					console.log( "what level is this" );
+			};
+
+			var distHTML1 = "";
+			distHTML1 += '<br><h3 align=left>High schools in the ' + hedLevel + ' range from ' + jsonYEAR + '</h3>';
+			distHTML1 += '<p><strong>The chart below is sortable,</strong> allowing you to compare composite meets/exceeds scores for high schools with a similar percent of low-income students. To sort the list,</strong> simply click the heading for each column - once for ascending order, again for descending order.</p>';
+
+		} else {
+			console.log( "needs level selected" );
+		};
+
+		var distHTML = "";
+			distHTML += '<p><table id="tableSCHOOLS" class="display compact">';
+			distHTML += '<thead><tr><th>School, district</th><th>% low<br>income</th><th>School\'s<br>meets/exceeds</th><th>Poverty-<br>Achievement<br>Index</th><th>Avg. meets/<br>exceeds for<br>income range</th></tr></thead><tbody>';
+
+//Create the list of schools	
+		$.each(data, function(i) {
+			distHTML += '<tr><td>' + data[i].name + ', ' + data[i].dist + '</td><td>' + data[i]['lowinc' + jsonYEAR] + '</td><td>' + data[i][jsonLEVEL + 'comp' + jsonYEAR] + '</td><td>' + data[i]['z' + jsonLEVEL + 'score' + jsonYEAR] + '</td><td>' + data[i]['avg' + jsonLEVEL + jsonYEAR] + '</td></tr>';
+			});
+			
+//END list of schools
+
+			distHTML += '</tbody></table></p><p class="source">*Testing or lottery-based school that may admit students outside a set attendance boundary. For more on how we marked these schools, <a href="#select">please click here.</a><br>For more about the state data we used, <a href="#aboutDATA">please click here.</a></p>';
+
+		$('#schHED').html(distHTML1);
+		$('#schoolsLIST').html(distHTML);
+
+// Activates the table as a datatable
+
+		$('#tableSCHOOLS').DataTable( {
+			responsive: true,
+        	"order": [[ 2, "desc" ]]
+        } );
+
+	});
+});
+
+});
+
+</script>
+
+
+<script>
+
+$( "#detailToggle" ).hide();
+
+$(document).ready(function(e) {
+
+var aID;
+
+// creates the list of districts to choose from in the autocomplete
+
+var listOdistricts = [
+{value: "010010010260000", label: "001 - Payson CUSD 1",},
+{value: "010010020260000", label: "002 - Liberty CUSD 2",},
+{value: "010010030260000", label: "003 - Central CUSD 3",},
+{value: "010010040260000", label: "004 - CUSD 4",},
+{value: "010011720220000", label: "172 - Quincy SD 172",},
+{value: "010750010260000", label: "001 - BARRY CUSD 1",},
+{value: "010750020260000", label: "002 - WEST PIKE CUSD 2",},
+{value: "010750030260000", label: "003 - Pleasant Hill CUSD 3",},
+{value: "010750040260000", label: "004 - Griggsville-Perry CUSD 4",},
+{value: "010750100260000", label: "010 - Pikeland CUSD 10",},
+{value: "010750120260000", label: "012 - Western CUSD 12",},
+{value: "020020010220000", label: "001 - Cairo USD 1",},
+{value: "020020050260000", label: "005 - Egyptian CUSD 5",},
+{value: "020440010260000", label: "001 - Goreville CUD 1",},
+{value: "020440320030000", label: "032 - New Simpson Hill SD 32",},
+{value: "020440430030000", label: "043 - Buncombe Cons SD 43",},
+{value: "020440550020000", label: "055 - Vienna SD 55",},
+{value: "020440640020000", label: "064 - Cypress SD 64",},
+{value: "020441330170000", label: "133 - Vienna HSD 133",},
+{value: "020610010260000", label: "001 - Massac UD 1",},
+{value: "020610380260000", label: "038 - Joppa-Maple Grove UD 38",},
+{value: "020771000260000", label: "100 - Century CUSD 100",},
+{value: "020771010260000", label: "101 - Meridian CUSD 101",},
+{value: "020910160040000", label: "016 - Lick Creek CCSD 16",},
+{value: "020910170220000", label: "017 - Cobden SUD 17",},
+{value: "020910370040000", label: "037 - Anna CCSD 37",},
+{value: "020910430040000", label: "043 - County of Union Sch Dist No43",},
+{value: "020910660220000", label: "066 - Dongola USD 66",},
+{value: "020910810160000", label: "081 - Anna Jonesboro CHSD 81",},
+{value: "020910840260000", label: "084 - Shawnee CUSD 84",},
+{value: "030030010260000", label: "001 - Mulberry Grove CUSD 1",},
+{value: "030030020260000", label: "002 - Bond County CUSD 2",},
+{value: "030250100260000", label: "010 - Altamont CUSD 10",},
+{value: "030250200260000", label: "020 - Beecher City CUSD 20",},
+{value: "030250300260000", label: "030 - Dieterich CUSD 30",},
+{value: "030250400260000", label: "040 - Effingham CUSD 40",},
+{value: "030250500260000", label: "050 - Teutopolis CUSD 50",},
+{value: "030262010260000", label: "201 - Brownstown CUSD 201",},
+{value: "030262020260000", label: "202 - St Elmo CUSD 202",},
+{value: "030262030260000", label: "203 - Vandalia CUSD 203",},
+{value: "030262040260000", label: "204 - Ramsey CUSD 204",},
+{value: "040041000260000", label: "100 - Belvidere CUSD 100",},
+{value: "040042000260000", label: "200 - North Boone CUSD 200",},
+{value: "041011220220000", label: "122 - Harlem UD 122",},
+{value: "041011310040000", label: "131 - Kinnikinnick CCSD 131",},
+{value: "041011330040000", label: "133 - Prairie Hill CCSD 133",},
+{value: "041011340040000", label: "134 - Shirland CCSD 134",},
+{value: "041011400040000", label: "140 - Rockton SD 140",},
+{value: "041012050250000", label: "205 - Rockford SD 205",},
+{value: "041012070160000", label: "207 - Hononegah CHD 207",},
+{value: "041013200260000", label: "320 - County of Winnebago SD 320",},
+{value: "041013210260000", label: "321 - Pecatonica CUSD 321",},
+{value: "041013220260000", label: "322 - Durand CUSD 322",},
+{value: "041013230260000", label: "323 - Winnebago CUSD 323",},
+{value: "050160150040000", label: "015 - Palatine CCSD 15",},
+{value: "050160210040000", label: "021 - Wheeling CCSD 21",},
+{value: "050160230020000", label: "023 - Prospect Heights SD 23",},
+{value: "050160250020000", label: "025 - Arlington Heights SD 25",},
+{value: "050160260020000", label: "026 - River Trails SD 26",},
+{value: "050160270020000", label: "027 - Northbrook ESD 27",},
+{value: "050160280020000", label: "028 - Northbrook SD 28",},
+{value: "050160290020000", label: "029 - Sunset Ridge SD 29",},
+{value: "050160300020000", label: "030 - Northbrook/Glenview SD 30",},
+{value: "050160310020000", label: "031 - West Northfield SD 31",},
+{value: "050160340040000", label: "034 - Glenview CCSD 34",},
+{value: "050160350020000", label: "035 - Glencoe SD 35",},
+{value: "050160360020000", label: "036 - Winnetka SD 36",},
+{value: "050160370020000", label: "037 - Avoca SD 37",},
+{value: "050160380020000", label: "038 - Kenilworth SD 38",},
+{value: "050160390020000", label: "039 - Wilmette SD 39",},
+{value: "050160540040000", label: "054 - Schaumburg CCSD 54",},
+{value: "050160570020000", label: "057 - Mount Prospect SD 57",},
+{value: "050160590040000", label: "059 - Comm Cons SD 59",},
+{value: "050160620040000", label: "062 - CCSD 62",},
+{value: "050160630020000", label: "063 - East Maine SD 63",},
+{value: "050160640040000", label: "064 - Park Ridge CCSD 64",},
+{value: "050160650040000", label: "065 - Evanston CCSD 65",},
+{value: "050160670020000", label: "067 - Golf ESD 67",},
+{value: "050160680020000", label: "068 - Skokie SD 68",},
+{value: "050160690020000", label: "069 - Skokie SD 69",},
+{value: "050160700020000", label: "070 - Morton Grove SD 70",},
+{value: "050160710020000", label: "071 - Niles ESD 71",},
+{value: "050160720020000", label: "072 - Fairview SD 72",},
+{value: "050160730020000", label: "073 - East Prairie SD 73",},
+{value: "050160735020000", label: "073 - Skokie SD 73-5",},
+{value: "050160740020000", label: "074 - Lincolnwood SD 74",},
+{value: "050162020170000", label: "202 - Evanston Twp HSD 202",},
+{value: "050162030170000", label: "203 - New Trier Twp HSD 203",},
+{value: "050162070170000", label: "207 - Maine Township HSD 207",},
+{value: "050162110170000", label: "211 - Township HSD 211",},
+{value: "050162140170000", label: "214 - Township HSD 214",},
+{value: "050162190170000", label: "219 - Niles Twp CHSD 219",},
+{value: "050162250170000", label: "225 - Northfield Twp HSD 225",},
+{value: "060160780020000", label: "078 - Rosemont ESD 78",},
+{value: "060160790020000", label: "079 - Pennoyer SD 79",},
+{value: "060160800020000", label: "080 - Norridge SD 80",},
+{value: "060160810020000", label: "081 - Schiller Park SD 81",},
+{value: "060160830020000", label: "083 - Mannheim SD 83",},
+{value: "060160840020000", label: "084 - Franklin Park SD 84",},
+{value: "060160845020000", label: "084 - Rhodes SD 84-5",},
+{value: "060160855020000", label: "085 - River Grove SD 85-5",},
+{value: "060160860020000", label: "086 - Union Ridge SD 86",},
+{value: "060160870020000", label: "087 - Berkeley SD 87",},
+{value: "060160880020000", label: "088 - Bellwood SD 88",},
+{value: "060160890020000", label: "089 - Maywood-Melrose Park-Broadview 89",},
+{value: "060160900020000", label: "090 - River Forest SD 90",},
+{value: "060160910020000", label: "091 - Forest Park SD 91",},
+{value: "060160920020000", label: "092 - Lindop SD 92",},
+{value: "060160925020000", label: "092 - Westchester SD 92-5",},
+{value: "060160930020000", label: "093 - Hillside SD 93",},
+{value: "060160940020000", label: "094 - Komarek SD 94",},
+{value: "060160950020000", label: "095 - Brookfield Lagrange Park SD 95",},
+{value: "060160960020000", label: "096 - Riverside SD 96",},
+{value: "060160970020000", label: "097 - Oak Park ESD 97",},
+{value: "060160980020000", label: "098 - Berwyn North SD 98",},
+{value: "060160990020000", label: "099 - Cicero SD 99",},
+{value: "060161000020000", label: "100 - Berwyn South SD 100",},
+{value: "060161010020000", label: "101 - Western Springs SD 101",},
+{value: "060161020020000", label: "102 - La Grange SD 102",},
+{value: "060161030020000", label: "103 - Lyons SD 103",},
+{value: "060161050020000", label: "105 - La Grange SD 105 South",},
+{value: "060161060020000", label: "106 - LaGrange Highlands SD 106",},
+{value: "060161070020000", label: "107 - Pleasantdale SD 107",},
+{value: "060162000130000", label: "200 - Oak Park - River Forest SD 200",},
+{value: "060162010170000", label: "201 - J S Morton HSD 201",},
+{value: "060162040170000", label: "204 - Lyons Twp HSD 204",},
+{value: "060162080170000", label: "208 - Riverside-Brookfield Twp SD 208",},
+{value: "060162090170000", label: "209 - Proviso Twp HSD 209",},
+{value: "060162120160000", label: "212 - Leyden CHSD 212",},
+{value: "060162340160000", label: "234 - Ridgewood CHSD 234",},
+{value: "060164010260000", label: "401 - Elmwood Park CUSD 401",},
+{value: "070161040020000", label: "104 - Summit SD 104",},
+{value: "070161080020000", label: "108 - Willow Springs SD 108",},
+{value: "070161090020000", label: "109 - Indian Springs SD 109",},
+{value: "070161100020000", label: "110 - Central Stickney SD 110",},
+{value: "070161110020000", label: "111 - Burbank SD 111",},
+{value: "070161170020000", label: "117 - North Palos SD 117",},
+{value: "070161180040000", label: "118 - Palos CCSD 118",},
+{value: "070161220020000", label: "122 - Ridgeland SD 122",},
+{value: "070161230020000", label: "123 - Oak Lawn-Hometown SD 123",},
+{value: "070161240020000", label: "124 - Evergreen Park ESD 124",},
+{value: "070161250020000", label: "125 - Atwood Heights SD 125",},
+{value: "070161260020000", label: "126 - Alsip-Hazlgrn-Oaklwn SD 126",},
+{value: "070161270020000", label: "127 - Worth SD 127",},
+{value: "070161275020000", label: "127 - Chicago Ridge SD 127-5",},
+{value: "070161280020000", label: "128 - Palos Heights SD 128",},
+{value: "070161300020000", label: "130 - Cook County SD 130",},
+{value: "070161320020000", label: "132 - Calumet Public SD 132",},
+{value: "070161330020000", label: "133 - Gen George Patton SD 133",},
+{value: "070161350020000", label: "135 - Orland SD 135",},
+{value: "070161400020000", label: "140 - Kirby SD 140",},
+{value: "070161420020000", label: "142 - Forest Ridge SD 142",},
+{value: "070161430020000", label: "143 - Midlothian SD 143",},
+{value: "070161435020000", label: "143 - Posen-Robbins ESD 143-5",},
+{value: "070161440020000", label: "144 - Prairie-Hills ESD 144",},
+{value: "070161450020000", label: "145 - Arbor Park SD 145",},
+{value: "070161460040000", label: "146 - CCSD 146",},
+{value: "070161470020000", label: "147 - W Harvey-Dixmoor PSD 147",},
+{value: "070161480020000", label: "148 - Dolton SD 148",},
+{value: "070161490020000", label: "149 - Dolton SD 149",},
+{value: "070161500020000", label: "150 - South Holland SD 150",},
+{value: "070161510020000", label: "151 - South Holland SD 151",},
+{value: "070161520020000", label: "152 - Harvey SD 152",},
+{value: "070161525020000", label: "152 - Hazel Crest SD 152-5",},
+{value: "070161530020000", label: "153 - Homewood SD 153",},
+{value: "070161540020000", label: "154 - Thornton SD 154",},
+{value: "070161545020000", label: "154 - Burnham SD 154-5",},
+{value: "070161550020000", label: "155 - Calumet City SD 155",},
+{value: "070161560020000", label: "156 - Lincoln ESD 156",},
+{value: "070161570020000", label: "157 - Hoover-Schrum Memorial SD 157",},
+{value: "070161580020000", label: "158 - Lansing SD 158",},
+{value: "070161590020000", label: "159 - ESD 159",},
+{value: "070161600020000", label: "160 - Country Club Hills SD 160",},
+{value: "070161610020000", label: "161 - Flossmoor SD 161",},
+{value: "070161620020000", label: "162 - Matteson ESD 162",},
+{value: "070161630020000", label: "163 - Park Forest SD 163",},
+{value: "070161670020000", label: "167 - Brookwood SD 167",},
+{value: "070161680040000", label: "168 - CCSD 168",},
+{value: "070161690020000", label: "169 - Ford Heights SD 169",},
+{value: "070161700020000", label: "170 - Chicago Heights SD 170",},
+{value: "070161710020000", label: "171 - Sunnybrook SD 171",},
+{value: "070161720020000", label: "172 - Sandridge SD 172",},
+{value: "070161940020000", label: "194 - Steger SD 194",},
+{value: "070162050170000", label: "205 - Thornton Twp HSD 205",},
+{value: "070162060170000", label: "206 - Bloom Twp HSD 206",},
+{value: "070162100170000", label: "210 - Lemont Twp HSD 210",},
+{value: "070162150170000", label: "215 - Thornton Fractional Twp HSD 215",},
+{value: "070162170160000", label: "217 - Argo CHSD 217",},
+{value: "070162180160000", label: "218 - CHSD 218",},
+{value: "070162200170000", label: "220 - Reavis Twp HSD 220",},
+{value: "070162270170000", label: "227 - Rich Twp HSD 227",},
+{value: "070162280160000", label: "228 - Bremen CHSD 228",},
+{value: "070162290160000", label: "229 - Oak Lawn CHSD 229",},
+{value: "070162300130000", label: "230 - Cons HSD 230",},
+{value: "070162310160000", label: "231 - Evergreen Park CHSD 231",},
+{value: "070162330160000", label: "233 - Homewood Flossmoor CHSD 233",},
+{value: "070169010250000", label: "901 - Southland College Prep",},
+{value: "080083000260000", label: "300 - SAVANNA COMMUNITY UNIT DIST 300",},
+{value: "080083010260000", label: "301 - THOMSON COM UNIT DIST 301",},
+{value: "080083040260000", label: "304 - MT CARROLL COMM UNIT DIST 304",},
+{value: "080083080260000", label: "308 - Eastland CUSD 308",},
+{value: "080083140260000", label: "314 - West Carroll CUSD 314",},
+{value: "080083990260000", label: "399 - Chadwick-Milledgeville CUSD 399",},
+{value: "080431190220000", label: "119 - East Dubuque USD 119",},
+{value: "080431200220000", label: "120 - Galena USD 120",},
+{value: "080432050260000", label: "205 - Warren CUSD 205",},
+{value: "080432060260000", label: "206 - Stockton CUSD 206",},
+{value: "080432100260000", label: "210 - River Ridge CUSD 210",},
+{value: "080432110260000", label: "211 - Scales Mound CUSD 211",},
+{value: "080891450220000", label: "145 - Freeport SD 145",},
+{value: "080892000260000", label: "200 - Pearl City CUSD 200",},
+{value: "080892010260000", label: "201 - Dakota CUSD 201",},
+{value: "080892020260000", label: "202 - Lena Winslow CUSD 202",},
+{value: "080892030260000", label: "203 - Orangeville CUSD 203",},
+{value: "090100010260000", label: "001 - Fisher CUSD 1",},
+{value: "090100030260000", label: "003 - Mahomet-Seymour CUSD 3",},
+{value: "090100040260000", label: "004 - Champaign CUSD 4",},
+{value: "090100070260000", label: "007 - Tolono CUSD 7",},
+{value: "090100080260000", label: "008 - Heritage CUSD 8",},
+{value: "090101160220000", label: "116 - Urbana SD 116",},
+{value: "090101300040000", label: "130 - Thomasboro CCSD 130",},
+{value: "090101370020000", label: "137 - Rantoul City SD 137",},
+{value: "090101420040000", label: "142 - Ludlow CCSD 142",},
+{value: "090101690040000", label: "169 - St Joseph CCSD 169",},
+{value: "090101880040000", label: "188 - Gifford CCSD 188",},
+{value: "090101920040000", label: "192 - PRAIRIEVIEW CCD 192",},
+{value: "090101930170000", label: "193 - Rantoul Township HSD 193",},
+{value: "090101970040000", label: "197 - Prairieview-Ogden CCSD 197",},
+{value: "090102120040000", label: "212 - OGDEN CCSD 212",},
+{value: "090103050160000", label: "305 - St Joseph Ogden CHSD 305",},
+{value: "090270050260000", label: "005 - Gibson City-Melvin-Sibley CUSD 5",},
+{value: "090270100260000", label: "010 - Paxton-Buckley-Loda CUD 10",},
+{value: "100110010260000", label: "001 - Morrisonville CUSD 1",},
+{value: "100110030260000", label: "003 - Taylorville CUSD 3",},
+{value: "100110040260000", label: "004 - Edinburg CUSD 4",},
+{value: "100110080260000", label: "008 - Pana CUSD 8",},
+{value: "100110140240000", label: "014 - South Fork SD 14",},
+{value: "100680020260000", label: "002 - Panhandle CUSD 2",},
+{value: "100680030260000", label: "003 - Hillsboro CUSD 3",},
+{value: "100680120260000", label: "012 - Litchfield CUSD 12",},
+{value: "100680220260000", label: "022 - Nokomis CUSD 22",},
+{value: "110150010260000", label: "001 - Charleston CUSD 1",},
+{value: "110150020260000", label: "002 - Mattoon CUSD 2",},
+{value: "110150050260000", label: "005 - Oakland CUSD 5",},
+{value: "110180030260000", label: "003 - Neoga CUSD 3",},
+{value: "110180770260000", label: "077 - Cumberland CUSD 77",},
+{value: "110213010260000", label: "301 - Tuscola CUSD 301",},
+{value: "110213020260000", label: "302 - Villa Grove CUSD 302",},
+{value: "110213050260000", label: "305 - Arthur CUSD 305",},
+{value: "110213060260000", label: "306 - Arcola CUSD 306",},
+{value: "110230010260000", label: "001 - Shiloh CUSD 1",},
+{value: "110230030260000", label: "003 - Kansas CUSD 3",},
+{value: "110230040260000", label: "004 - Paris CUSD 4",},
+{value: "110230060260000", label: "006 - Edgar County CUD 6",},
+{value: "110230950250000", label: "095 - Paris-Union SD 95",},
+{value: "110703000260000", label: "300 - Sullivan CUSD 300",},
+{value: "110703020260000", label: "302 - Okaw Valley CUSD 302",},
+{value: "110703030260000", label: "303 - Lovington CUSD 303",},
+{value: "110870010260000", label: "001 - Windsor CUSD 1",},
+{value: "110870040260000", label: "004 - Shelbyville CUSD 4",},
+{value: "110870210260000", label: "021 - Central A & M CUD 21",},
+{value: "120130100260000", label: "010 - Clay City CUSD 10",},
+{value: "120130250260000", label: "025 - North Clay CUSD 25",},
+{value: "120130350260000", label: "035 - Flora CUSD 35",},
+{value: "120170010260000", label: "001 - Hutsonville CUSD 1",},
+{value: "120170020260000", label: "002 - Robinson CUSD 2",},
+{value: "120170030260000", label: "003 - Palestine CUSD 3",},
+{value: "120170040260000", label: "004 - Oblong CUSD 4",},
+{value: "120400010260000", label: "001 - Jasper County CUD 1",},
+{value: "120510100260000", label: "010 - Red Hill CUSD 10",},
+{value: "120510200260000", label: "020 - Lawrence County CUD 20",},
+{value: "120800010260000", label: "001 - East Richland CUSD 1",},
+{value: "120800020260000", label: "002 - West Richland CUSD 2",},
+{value: "130140010260000", label: "001 - Carlyle CUSD 1",},
+{value: "130140030260000", label: "003 - Wesclin CUSD 3",},
+{value: "130140120040000", label: "012 - Breese ESD 12",},
+{value: "130140210020000", label: "021 - Aviston SD 21",},
+{value: "130140460020000", label: "046 - Willow Grove SD 46",},
+{value: "130140570020000", label: "057 - Bartelso SD 57",},
+{value: "130140600020000", label: "060 - Germantown SD 60",},
+{value: "130140620020000", label: "062 - Damiansville SD 62",},
+{value: "130140630020000", label: "063 - Albers SD 63",},
+{value: "130140710160000", label: "071 - Central CHSD 71",},
+{value: "130141415020000", label: "141 - St Rose SD 14-15",},
+{value: "130141860020000", label: "186 - North Wamac SD 186",},
+{value: "130580010030000", label: "001 - Raccoon Cons SD 1",},
+{value: "130580020030000", label: "002 - Kell Cons SD 2",},
+{value: "130580070040000", label: "007 - Iuka CCSD 7",},
+{value: "130580100040000", label: "010 - Selmaville CCSD 10",},
+{value: "130581000260000", label: "100 - Patoka CUSD 100",},
+{value: "130581110020000", label: "111 - Salem SD 111",},
+{value: "130581220020000", label: "122 - Odin SD 122",},
+{value: "130581330020000", label: "133 - Central City SD 133",},
+{value: "130581350020000", label: "135 - Centralia SD 135",},
+{value: "130582000170000", label: "200 - Centralia HSD 200",},
+{value: "130584010260000", label: "401 - South Central CUD 401",},
+{value: "130585010260000", label: "501 - Sandoval CUSD 501",},
+{value: "130586000160000", label: "600 - Salem CHSD 600",},
+{value: "130587000160000", label: "700 - Odin CHSD 700",},
+{value: "130587220260000", label: "722 - Odin PSD 722",},
+{value: "130950010040000", label: "001 - Oakdale CCSD 1",},
+{value: "130950100260000", label: "010 - West Washington Co CUD 10",},
+{value: "130950110040000", label: "011 - Irvington CCSD 11",},
+{value: "130950150040000", label: "015 - Ashley CCSD 15",},
+{value: "130950290030000", label: "029 - Hoyleton Cons SD 29",},
+{value: "130950490040000", label: "049 - Nashville CCSD 49",},
+{value: "130950990160000", label: "099 - Nashville CHSD 99",},
+{value: "140161460040000", label: "146 - Tinley Park CCSD 146",},
+{value: "150162990250000", label: "299 - City of Chicago SD 299",},
+{value: "160194240260000", label: "424 - Genoa Kingston CUSD 424",},
+{value: "160194250260000", label: "425 - Indian Creek CUSD 425",},
+{value: "160194260260000", label: "426 - Hiawatha CUSD 426",},
+{value: "160194270260000", label: "427 - Sycamore CUSD 427",},
+{value: "160194280260000", label: "428 - DeKalb CUSD 428",},
+{value: "160194290260000", label: "429 - Hinckley Big Rock CUSD 429",},
+{value: "160194300260000", label: "430 - Sandwich CUSD 430",},
+{value: "160194320260000", label: "432 - Somonauk CUSD 432",},
+{value: "170200150260000", label: "015 - Clinton CUSD 15",},
+{value: "170200180260000", label: "018 - Blue Ridge CUSD 18",},
+{value: "170530040260000", label: "004 - Flanagan CUSD 4",},
+{value: "170530050260000", label: "005 - Woodland CUSD 5",},
+{value: "170530080260000", label: "008 - Prairie Central CUSD 8",},
+{value: "170530740270000", label: "074 - Flanagan-Cornell Dist 74",},
+{value: "170530900170000", label: "090 - Pontiac Twp HSD 90",},
+{value: "170532300170000", label: "230 - Dwight Twp HSD 230",},
+{value: "170532320020000", label: "232 - Dwight Common SD 232",},
+{value: "170534250040000", label: "425 - Rooks Creek CCSD 425",},
+{value: "170534260040000", label: "426 - Cornell CCSD 426",},
+{value: "170534290040000", label: "429 - Pontiac CCSD 429",},
+{value: "170534350040000", label: "435 - Odell CCSD 435",},
+{value: "170534380040000", label: "438 - Saunemin CCSD 438",},
+{value: "170640020260000", label: "002 - LeRoy CUSD 2",},
+{value: "170640030260000", label: "003 - Tri Valley CUSD 3",},
+{value: "170640040260000", label: "004 - Heyworth CUSD 4",},
+{value: "170640050260000", label: "005 - McLean County USD 5",},
+{value: "170640070260000", label: "007 - Lexington CUSD 7",},
+{value: "170640090260000", label: "009 - CHENOA C U SCHOOL DISTRICT 9",},
+{value: "170640100260000", label: "010 - GRIDLEY C U SCH DIST 10",},
+{value: "170640160260000", label: "016 - Olympia CUSD 16",},
+{value: "170640190260000", label: "019 - Ridgeview CUSD 19",},
+{value: "170640870250000", label: "087 - Bloomington SD 87",},
+{value: "190220020020000", label: "002 - Bensenville SD 2",},
+{value: "190220040020000", label: "004 - Addison SD 4",},
+{value: "190220070020000", label: "007 - Wood Dale SD 7",},
+{value: "190220100020000", label: "010 - Itasca SD 10",},
+{value: "190220110020000", label: "011 - Medinah SD 11",},
+{value: "190220120020000", label: "012 - Roselle SD 12",},
+{value: "190220130020000", label: "013 - Bloomingdale SD 13",},
+{value: "190220150020000", label: "015 - Marquardt SD 15",},
+{value: "190220160020000", label: "016 - Queen Bee SD 16",},
+{value: "190220200020000", label: "020 - Keeneyville SD 20",},
+{value: "190220250020000", label: "025 - Benjamin SD 25",},
+{value: "190220330020000", label: "033 - West Chicago ESD 33",},
+{value: "190220340020000", label: "034 - Winfield SD 34",},
+{value: "190220410020000", label: "041 - Glen Ellyn SD 41",},
+{value: "190220440020000", label: "044 - Lombard SD 44",},
+{value: "190220450020000", label: "045 - SD 45 DuPage County",},
+{value: "190220480020000", label: "048 - Salt Creek SD 48",},
+{value: "190220530020000", label: "053 - Butler SD 53",},
+{value: "190220580020000", label: "058 - Downers Grove GSD 58",},
+{value: "190220600020000", label: "060 - Maercker SD 60",},
+{value: "190220610020000", label: "061 - Darien SD 61",},
+{value: "190220620020000", label: "062 - Gower SD 62",},
+{value: "190220630020000", label: "063 - Cass SD 63",},
+{value: "190220660020000", label: "066 - Center Cass SD 66",},
+{value: "190220680020000", label: "068 - Woodridge SD 68",},
+{value: "190220860170000", label: "086 - Hinsdale Twp HSD 86",},
+{value: "190220870170000", label: "087 - Glenbard Twp HSD 87",},
+{value: "190220880160000", label: "088 - DuPage HSD 88",},
+{value: "190220890040000", label: "089 - CCSD 89",},
+{value: "190220930040000", label: "093 - CCSD 93",},
+{value: "190220940160000", label: "094 - CHSD 94",},
+{value: "190220990160000", label: "099 - CHSD 99",},
+{value: "190221000160000", label: "100 - Fenton CHSD 100",},
+{value: "190221080160000", label: "108 - Lake Park CHSD 108",},
+{value: "190221800040000", label: "180 - CCSD 180",},
+{value: "190221810040000", label: "181 - Hinsdale CCSD 181",},
+{value: "190222000260000", label: "200 - CUSD 200",},
+{value: "190222010260000", label: "201 - CUSD 201",},
+{value: "190222020260000", label: "202 - Lisle CUSD 202",},
+{value: "190222030260000", label: "203 - Naperville CUSD 203",},
+{value: "190222040260000", label: "204 - Indian Prairie CUSD 204",},
+{value: "190222050260000", label: "205 - Elmhurst SD 205",},
+{value: "200240010260000", label: "001 - Edwards County CUSD 1",},
+{value: "200300070260000", label: "007 - Gallatin CUSD 7",},
+{value: "200350010260000", label: "001 - Hardin County CUSD 1",},
+{value: "200760010260000", label: "001 - Pope Co CUD 1",},
+{value: "200830010260000", label: "001 - Galatia CUSD 1",},
+{value: "200830020260000", label: "002 - Carrier Mills-Stonefort CUSD 2",},
+{value: "200830030260000", label: "003 - Harrisburg CUSD 3",},
+{value: "200830040260000", label: "004 - Eldorado CUSD 4",},
+{value: "200930170240000", label: "017 - Allendale CCSD 17",},
+{value: "200933480260000", label: "348 - Wabash CUSD 348",},
+{value: "200960060040000", label: "006 - New Hope CCSD 6",},
+{value: "200960140040000", label: "014 - Geff CCSD 14",},
+{value: "200960170040000", label: "017 - Jasper CCSD 17",},
+{value: "200960190040000", label: "019 - MERRIAM COMM CONS SCHOOL DIST 19",},
+{value: "200961000260000", label: "100 - Wayne City CUSD 100",},
+{value: "200961120040000", label: "112 - Fairfield PSD 112",},
+{value: "200962000260000", label: "200 - North Wayne CUSD 200",},
+{value: "200962250160000", label: "225 - Fairfield Comm H S Dist 225",},
+{value: "200970010260000", label: "001 - Grayville CUSD 1",},
+{value: "200970030260000", label: "003 - Norris City-Omaha-Enfield CUSD 3",},
+{value: "200970050260000", label: "005 - Carmi-White County CUSD 5",},
+{value: "210280470040000", label: "047 - Benton CCSD 47",},
+{value: "210280620020000", label: "062 - THOMPSONVILLE SD 62",},
+{value: "210280910040000", label: "091 - Akin CCSD 91",},
+{value: "210280990260000", label: "099 - Christopher USD 99",},
+{value: "210281030130000", label: "103 - Benton Cons HSD 103",},
+{value: "210281100040000", label: "110 - LOGAN COMM CONS SCH DIST 110",},
+{value: "210281120160000", label: "112 - THOMPSONVILLE CHSD 112",},
+{value: "210281150040000", label: "115 - Ewing Northern CCSD 115",},
+{value: "210281680260000", label: "168 - Frankfort CUSD 168",},
+{value: "210281740260000", label: "174 - Thompsonville CUSD 174",},
+{value: "210281880260000", label: "188 - Zeigler-Royalton CUSD 188",},
+{value: "210281960260000", label: "196 - Sesser-Valier CUSD 196",},
+{value: "211000010260000", label: "001 - Johnston City CUSD 1",},
+{value: "211000020260000", label: "002 - Marion CUSD 2",},
+{value: "211000030260000", label: "003 - Crab Orchard CUSD 3",},
+{value: "211000040260000", label: "004 - Herrin CUSD 4",},
+{value: "211000050260000", label: "005 - Carterville CUSD 5",},
+{value: "220290010260000", label: "001 - Astoria CUSD 1",},
+{value: "220290020260000", label: "002 - V I T CUSD 2",},
+{value: "220290030260000", label: "003 - CUSD 3 Fulton County",},
+{value: "220290040260000", label: "004 - Spoon River Valley CUSD 4",},
+{value: "220290660250000", label: "066 - Canton Union SD 66",},
+{value: "220290970260000", label: "097 - Lewistown CUSD 97",},
+{value: "220291760260000", label: "176 - Avon CUSD 176",},
+{value: "220850010260000", label: "001 - SCHUYLER CO C U SCH DIST 1",},
+{value: "220850050260000", label: "005 - Schuyler-Industry CUSD 5",},
+{value: "240320010260000", label: "001 - Coal City CUSD 1",},
+{value: "240320540020000", label: "054 - Morris SD 54",},
+{value: "240320730170000", label: "073 - Gardner S Wilmington Twp HSD 73",},
+{value: "240320740030000", label: "074 - South Wilmington CCSD 74",},
+{value: "240320750020000", label: "075 - Braceville SD 75",},
+{value: "240321010160000", label: "101 - Morris CHSD 101",},
+{value: "240321110160000", label: "111 - Minooka CHSD 111",},
+{value: "240322010040000", label: "201 - Minooka CCSD 201",},
+{value: "240470180160000", label: "018 - Newark CHSD 18",},
+{value: "240470660040000", label: "066 - Newark CCSD 66",},
+{value: "240470880260000", label: "088 - Plano CUSD 88",},
+{value: "240470900040000", label: "090 - Lisbon CCSD 90",},
+{value: "240471150260000", label: "115 - Yorkville CUSD 115",},
+{value: "240473080260000", label: "308 - Oswego CUSD 308",},
+{value: "250330100260000", label: "010 - Hamilton Co CUSD 10",},
+{value: "250410010260000", label: "001 - Waltonville CUSD 1",},
+{value: "250410020040000", label: "002 - Rome CCSD 2",},
+{value: "250410030040000", label: "003 - Field CCSD 3",},
+{value: "250410040040000", label: "004 - Woodlawn CCSD 4",},
+{value: "250410050040000", label: "005 - OPDYKE-BELLE-RIVE CCSD 5",},
+{value: "250410060040000", label: "006 - Grand Prairie CCSD 6",},
+{value: "250410070040000", label: "007 - Dodds CCSD 7",},
+{value: "250410080040000", label: "008 - Ina CCSD 8",},
+{value: "250410120040000", label: "012 - McClellan CCSD 12",},
+{value: "250410790020000", label: "079 - Summersville SD 79",},
+{value: "250410800020000", label: "080 - Mount Vernon SD 80",},
+{value: "250410820020000", label: "082 - Bethel SD 82",},
+{value: "250410990040000", label: "099 - Farrington CCSD 99",},
+{value: "250411140040000", label: "114 - Bluford CCSD 114",},
+{value: "250412010170000", label: "201 - Mt Vernon Twp HSD 201",},
+{value: "250412040170000", label: "204 - Webber Twp HSD 204",},
+{value: "250412050160000", label: "205 - Woodlawn CHSD 205",},
+{value: "260343070160000", label: "307 - Illini West H S Dist 307",},
+{value: "260343160260000", label: "316 - Warsaw CUSD 316",},
+{value: "260343170040000", label: "317 - Carthage ESD 317",},
+{value: "260343250260000", label: "325 - Nauvoo-Colusa CUSD 325",},
+{value: "260343270040000", label: "327 - Dallas ESD 327",},
+{value: "260343280240000", label: "328 - Hamilton CCSD 328",},
+{value: "260343350260000", label: "335 - LA HARPE CUSD 335",},
+{value: "260343360260000", label: "336 - DALLAS CUSD 336",},
+{value: "260343370260000", label: "337 - Southeastern CUSD 337",},
+{value: "260343380260000", label: "338 - CARTHAGE CUSD 338",},
+{value: "260343470040000", label: "347 - La Harpe CSD 347",},
+{value: "260621030260000", label: "103 - West Prairie CUSD 103",},
+{value: "260621650260000", label: "165 - INDUSTRY C U SCH DIST 165",},
+{value: "260621700260000", label: "170 - Bushnell Prairie City CUSD 170",},
+{value: "260621850260000", label: "185 - Macomb CUSD 185",},
+{value: "270361150260000", label: "115 - UNION COMMUNITY UNIT SCH DIST 115",},
+{value: "270361200260000", label: "120 - SOUTHERN C U SCHOOL DIST 120",},
+{value: "270362350260000", label: "235 - West Central CUSD 235",},
+{value: "270662010260000", label: "201 - Aledo CUSD 201",},
+{value: "270662030260000", label: "203 - Westmer CUSD 203",},
+{value: "270664040260000", label: "404 - Mercer County School District 404",},
+{value: "270940380220000", label: "038 - MONMOUTH UNIT SCH DIST 38",},
+{value: "270942000260000", label: "200 - ROSEVILLE C U SCH DIST 200",},
+{value: "270942220260000", label: "222 - WARREN C U SCH DIST 222",},
+{value: "270942250260000", label: "225 - YORKWOOD CUSD 225",},
+{value: "270942380260000", label: "238 - Monmouth-Roseville CUSD 238",},
+{value: "270943040260000", label: "304 - United CUSD 304",},
+{value: "270944000260000", label: "400 - ALEXIS C U SCH DIST 400",},
+{value: "280060170040000", label: "017 - Ohio CCSD 17",},
+{value: "280060840040000", label: "084 - Malden CCSD 84",},
+{value: "280060920020000", label: "092 - Cherry SD 92",},
+{value: "280060940040000", label: "094 - Ladd CCSD 94",},
+{value: "280060980020000", label: "098 - Dalzell SD 98",},
+{value: "280060990040000", label: "099 - Spring Valley CCSD 99",},
+{value: "280061030220000", label: "103 - DePue USD 103",},
+{value: "280061150020000", label: "115 - Princeton ESD 115",},
+{value: "280061750040000", label: "175 - Leepertown CCSD 175",},
+{value: "280063030260000", label: "303 - La Moille CUSD 303",},
+{value: "280063070240000", label: "307 - Neponset CCSD 307",},
+{value: "280063400260000", label: "340 - Bureau Valley CUSD 340",},
+{value: "280065000150000", label: "500 - Princeton HSD 500",},
+{value: "280065020170000", label: "502 - Hall HSD 502",},
+{value: "280065050160000", label: "505 - Ohio CHSD 505",},
+{value: "280371900020000", label: "190 - Colona SD 190",},
+{value: "280372230260000", label: "223 - Orion CUSD 223",},
+{value: "280372240260000", label: "224 - Galva CUSD 224",},
+{value: "280372250260000", label: "225 - AlWood CUSD 225",},
+{value: "280372260260000", label: "226 - Annawan CUSD 226",},
+{value: "280372270260000", label: "227 - Cambridge CUSD 227",},
+{value: "280372280260000", label: "228 - Geneseo CUSD 228",},
+{value: "280372290260000", label: "229 - Kewanee CUSD 229",},
+{value: "280372300260000", label: "230 - Wethersfield CUSD 230",},
+{value: "280880010260000", label: "001 - Bradford CUSD 1",},
+{value: "280881000260000", label: "100 - Stark County CUSD 100",},
+{value: "300390860030000", label: "086 - DeSoto Cons SD 86",},
+{value: "300390950020000", label: "095 - Carbondale ESD 95",},
+{value: "300391300040000", label: "130 - Giant City CCSD 130",},
+{value: "300391400040000", label: "140 - Unity Point CCSD 140",},
+{value: "300391650160000", label: "165 - Carbondale CHSD 165",},
+{value: "300391760260000", label: "176 - Trico CUSD 176",},
+{value: "300391860260000", label: "186 - Murphysboro CUSD 186",},
+{value: "300391960260000", label: "196 - Elverado CUSD 196",},
+{value: "300730050020000", label: "005 - Tamaroa School Dist 5",},
+{value: "300730500020000", label: "050 - Pinckneyville SD 50",},
+{value: "300731010160000", label: "101 - Pinckneyville CHSD 101",},
+{value: "300732040040000", label: "204 - CCSD 204",},
+{value: "300733000260000", label: "300 - Duquoin CUSD 300",},
+{value: "310450460220000", label: "046 - SD U-46",},
+{value: "310451010220000", label: "101 - Batavia USD 101",},
+{value: "310451290220000", label: "129 - Aurora West USD 129",},
+{value: "310451310220000", label: "131 - Aurora East USD 131",},
+{value: "310453000260000", label: "300 - CUSD 300",},
+{value: "310453010260000", label: "301 - Central CUSD 301",},
+{value: "310453020260000", label: "302 - Kaneland CUSD 302",},
+{value: "310453030260000", label: "303 - St Charles CUSD 303",},
+{value: "310453040260000", label: "304 - Geneva CUSD 304",},
+{value: "320380030260000", label: "003 - Donovan CUSD 3",},
+{value: "320380040260000", label: "004 - Central CUSD 4",},
+{value: "320380060260000", label: "006 - Cissna Park CUSD 6",},
+{value: "320380090260000", label: "009 - Iroquois County CUSD 9",},
+{value: "320380100260000", label: "010 - Iroquois West CUSD 10",},
+{value: "320382330170000", label: "233 - Milford Twp HSD 233",},
+{value: "320382490260000", label: "249 - Crescent Iroquois CUSD 249",},
+{value: "320382520160000", label: "252 - CRESCENT IROQUOIS COMM DIST 252",},
+{value: "320382750040000", label: "275 - CRESCENT CITY C C SCHOOL DIST 275",},
+{value: "320382800040000", label: "280 - Milford CCSD 280",},
+{value: "320460010260000", label: "001 - Momence CUSD 1",},
+{value: "320460020260000", label: "002 - Herscher CUSD 2",},
+{value: "320460050260000", label: "005 - Manteno CUSD 5",},
+{value: "320460060260000", label: "006 - Grant Park CUSD 6",},
+{value: "320460530020000", label: "053 - Bourbonnais SD 53",},
+{value: "320460610020000", label: "061 - Bradley SD 61",},
+{value: "320461110250000", label: "111 - Kankakee SD 111",},
+{value: "320462560040000", label: "256 - St Anne CCSD 256",},
+{value: "320462580040000", label: "258 - St George CCSD 258",},
+{value: "320462590040000", label: "259 - Pembroke CCSD 259",},
+{value: "320463020160000", label: "302 - St Anne CHSD 302",},
+{value: "320463070160000", label: "307 - Bradley Bourbonnais CHSD 307",},
+{value: "330482020260000", label: "202 - Knoxville CUSD 202",},
+{value: "330482050260000", label: "205 - Galesburg CUSD 205",},
+{value: "330482080260000", label: "208 - R O W V A CUSD 208",},
+{value: "330482100260000", label: "210 - Williamsfield CUSD 210",},
+{value: "330482170260000", label: "217 - Abingdon CUSD 217",},
+{value: "330482760260000", label: "276 - Abingdon-Avon CUSD 276",},
+{value: "340490010020000", label: "001 - Winthrop Harbor SD 1",},
+{value: "340490030040000", label: "003 - Beach Park CCSD 3",},
+{value: "340490060020000", label: "006 - Zion ESD 6",},
+{value: "340490240040000", label: "024 - Millburn CCSD 24",},
+{value: "340490330020000", label: "033 - Emmons SD 33",},
+{value: "340490340040000", label: "034 - Antioch CCSD 34",},
+{value: "340490360020000", label: "036 - Grass Lake SD 36",},
+{value: "340490370020000", label: "037 - Gavin SD 37",},
+{value: "340490380020000", label: "038 - Big Hollow SD 38",},
+{value: "340490410040000", label: "041 - Lake Villa CCSD 41",},
+{value: "340490460040000", label: "046 - Grayslake CCSD 46",},
+{value: "340490500040000", label: "050 - Woodland CCSD 50",},
+{value: "340490560020000", label: "056 - Gurnee SD 56",},
+{value: "340490600260000", label: "060 - Waukegan CUSD 60",},
+{value: "340490650020000", label: "065 - Lake Bluff ESD 65",},
+{value: "340490670050000", label: "067 - Lake Forest SD 67",},
+{value: "340490680020000", label: "068 - Oak Grove SD 68 - Lake Co.",},
+{value: "340490700020000", label: "070 - Libertyville SD 70",},
+{value: "340490720020000", label: "072 - Rondout SD 72",},
+{value: "340490730040000", label: "073 - Hawthorn CCSD 73",},
+{value: "340490750020000", label: "075 - Mundelein ESD 75",},
+{value: "340490760020000", label: "076 - Diamond Lake SD 76",},
+{value: "340490790020000", label: "079 - Fremont SD 79",},
+{value: "340490950260000", label: "095 - Lake Zurich CUSD 95",},
+{value: "340490960040000", label: "096 - Kildeer Countryside CCSD 96",},
+{value: "340491020040000", label: "102 - Aptakisic-Tripp CCSD 102",},
+{value: "340491030020000", label: "103 - Lincolnshire-Prairieview SD 103",},
+{value: "340491060020000", label: "106 - Bannockburn SD 106",},
+{value: "340491090020000", label: "109 - Deerfield SD 109",},
+{value: "340491120020000", label: "112 - North Shore SD 112",},
+{value: "340491130170000", label: "113 - Twp HSD 113",},
+{value: "340491140020000", label: "114 - Fox Lake GSD 114",},
+{value: "340491150160000", label: "115 - Lake Forest CHSD 115",},
+{value: "340491160260000", label: "116 - Round Lake CUSD 116",},
+{value: "340491170160000", label: "117 - CHSD 117",},
+{value: "340491180260000", label: "118 - Wauconda CUSD 118",},
+{value: "340491200130000", label: "120 - Mundelein Cons HSD 120",},
+{value: "340491210170000", label: "121 - Warren Twp HSD 121",},
+{value: "340491240160000", label: "124 - Grant CHSD 124",},
+{value: "340491250130000", label: "125 - Adlai E Stevenson HSD 125",},
+{value: "340491260170000", label: "126 - Zion-Benton Twp HSD 126",},
+{value: "340491270160000", label: "127 - Grayslake CHSD 127",},
+{value: "340491280160000", label: "128 - CHSD 128",},
+{value: "340491870260000", label: "187 - North Chicago SD 187",},
+{value: "340492200260000", label: "220 - Barrington CUSD 220",},
+{value: "340499000250000", label: "900 - Prairie Crossing Charter School",},
+{value: "350500010260000", label: "001 - Leland CUSD 1",},
+{value: "350500020260000", label: "002 - Serena CUSD 2",},
+{value: "350500090260000", label: "009 - Earlville CUSD 9",},
+{value: "350500400170000", label: "040 - Streator Twp HSD 40",},
+{value: "350500440020000", label: "044 - Streator ESD 44",},
+{value: "350500650040000", label: "065 - Allen-Otter Creek CCSD 65",},
+{value: "350500790040000", label: "079 - Tonica CCSD 79",},
+{value: "350500820040000", label: "082 - Deer Park CCSD 82",},
+{value: "350500950040000", label: "095 - Grand Ridge CCSD 95",},
+{value: "350501200170000", label: "120 - La Salle-Peru Twp HSD 120",},
+{value: "350501220020000", label: "122 - La Salle ESD 122",},
+{value: "350501240020000", label: "124 - Peru ESD 124",},
+{value: "350501250020000", label: "125 - Oglesby ESD 125",},
+{value: "350501400170000", label: "140 - Ottawa Twp HSD 140",},
+{value: "350501410020000", label: "141 - Ottawa ESD 141",},
+{value: "350501500020000", label: "150 - Marseilles ESD 150",},
+{value: "350501600170000", label: "160 - Seneca Twp HSD 160",},
+{value: "350501700040000", label: "170 - Seneca CCSD 170",},
+{value: "350501750040000", label: "175 - Dimmick CCSD 175",},
+{value: "350501850040000", label: "185 - Waltham CCSD 185",},
+{value: "350501950040000", label: "195 - Wallace CCSD 195",},
+{value: "350502100040000", label: "210 - Miller Twp CCSD 210",},
+{value: "350502300040000", label: "230 - Rutland CCSD 230",},
+{value: "350502800170000", label: "280 - Mendota Twp HSD 280",},
+{value: "350502890040000", label: "289 - Mendota CCSD 289",},
+{value: "350504250260000", label: "425 - Lostant CUSD 425",},
+{value: "380540210260000", label: "021 - Hartsburg Emden CUSD 21",},
+{value: "380540230260000", label: "023 - Mt Pulaski CUSD 23",},
+{value: "380540270020000", label: "027 - Lincoln ESD 27",},
+{value: "380540610040000", label: "061 - Chester-East Lincoln CCSD 61",},
+{value: "380540880020000", label: "088 - New Holland-Middletown ED 88",},
+{value: "380540920040000", label: "092 - West Lincoln-Broadwell ESD 92",},
+{value: "380544040160000", label: "404 - Lincoln CHSD 404",},
+{value: "380601260260000", label: "126 - Havana CUSD 126",},
+{value: "380601890260000", label: "189 - Illini Central CUSD 189",},
+{value: "380601910260000", label: "191 - Midwest Central CUSD 191",},
+{value: "380652000260000", label: "200 - Greenview CUSD 200",},
+{value: "380652020260000", label: "202 - Porta CUSD 202",},
+{value: "380652130260000", label: "213 - Athens CUSD 213",},
+{value: "390550010260000", label: "001 - Argenta-Oreana CUSD 1",},
+{value: "390550020260000", label: "002 - Maroa Forsyth CUSD 2",},
+{value: "390550030260000", label: "003 - Mt Zion CUSD 3",},
+{value: "390550060260000", label: "006 - NIANTIC-HARRISTOWN C U S D 6",},
+{value: "390550090260000", label: "009 - Sangamon Valley CUSD 9",},
+{value: "390550110260000", label: "011 - Warrensburg-Latham CUSD 11",},
+{value: "390550150260000", label: "015 - Meridian CUSD 15",},
+{value: "390550610250000", label: "061 - Decatur SD 61",},
+{value: "390740050260000", label: "005 - Bement CUSD 5",},
+{value: "390740250260000", label: "025 - Monticello CUSD 25",},
+{value: "390740390260000", label: "039 - Atwood Hammond CUSD 39",},
+{value: "390740570260000", label: "057 - Deland-Weldon CUSD 57",},
+{value: "390741000260000", label: "100 - Cerro Gordo CUSD 100",},
+{value: "400070400260000", label: "040 - Calhoun CUSD 40",},
+{value: "400070420260000", label: "042 - Brussels CUSD 42",},
+{value: "400310010260000", label: "001 - Carrollton CUSD 1",},
+{value: "400310030260000", label: "003 - North Greene CUSD 3",},
+{value: "400310100260000", label: "010 - Greenfield CUSD 10",},
+{value: "400421000260000", label: "100 - Jersey CUSD 100",},
+{value: "400560010260000", label: "001 - Carlinville CUSD 1",},
+{value: "400560020260000", label: "002 - Northwestern CUSD 2",},
+{value: "400560030260000", label: "003 - Girard CUSD 3",},
+{value: "400560040260000", label: "004 - Virden CUSD 4",},
+{value: "400560050260000", label: "005 - Mount Olive CUSD 5",},
+{value: "400560060260000", label: "006 - Staunton CUSD 6",},
+{value: "400560070260000", label: "007 - Gillespie CUSD 7",},
+{value: "400560080260000", label: "008 - Bunker Hill CUSD 8",},
+{value: "400560090260000", label: "009 - Southwestern CUSD 9",},
+{value: "400560340260000", label: "034 - North Mac CUSD 34",},
+{value: "410570010260000", label: "001 - Roxana CUSD 1",},
+{value: "410570020260000", label: "002 - Triad CUSD 2",},
+{value: "410570030260000", label: "003 - Venice CUSD 3",},
+{value: "410570040240000", label: "004 - LIVINGSTON C C SCHOOL DIST 4",},
+{value: "410570050260000", label: "005 - Highland CUSD 5",},
+{value: "410570070260000", label: "007 - Edwardsville CUSD 7",},
+{value: "410570080260000", label: "008 - Bethalto CUSD 8",},
+{value: "410570090260000", label: "009 - Granite City CUSD 9",},
+{value: "410570100260000", label: "010 - Collinsville CUSD 10",},
+{value: "410570110260000", label: "011 - Alton CUSD 11",},
+{value: "410570120260000", label: "012 - Madison CUSD 12",},
+{value: "410570130020000", label: "013 - East Alton SD 13",},
+{value: "410570140160000", label: "014 - East Alton-Wood River CHSD 14",},
+{value: "410570150030000", label: "015 - Wood River-Hartford ESD 15",},
+{value: "430590050260000", label: "005 - Henry-Senachwine CUSD 5",},
+{value: "430590070260000", label: "007 - Midland CUSD 7",},
+{value: "430785350260000", label: "535 - Putnam County CUSD 535",},
+{value: "431020010040000", label: "001 - Metamora CCSD 1",},
+{value: "431020020040000", label: "002 - Riverview CCSD 2",},
+{value: "431020060260000", label: "006 - Fieldcrest CUSD 6",},
+{value: "431020110260000", label: "011 - El Paso-Gridley CUSD 11",},
+{value: "431020210260000", label: "021 - Lowpoint-Washburn CUSD 21",},
+{value: "431020600260000", label: "060 - Roanoke Benson CUSD 60",},
+{value: "431020690020000", label: "069 - Germantown Hills SD 69",},
+{value: "431021220170000", label: "122 - County of Woodford School",},
+{value: "431021400260000", label: "140 - Eureka CUD 140",},
+{value: "440630020030000", label: "002 - Nippersink SD 2",},
+{value: "440630030030000", label: "003 - Fox River Grove Cons SD 3",},
+{value: "440630120260000", label: "012 - Johnsburg CUSD 12",},
+{value: "440630150040000", label: "015 - McHenry CCSD 15",},
+{value: "440630180040000", label: "018 - Riley CCSD 18",},
+{value: "440630190240000", label: "019 - Alden Hebron SD 19",},
+{value: "440630260040000", label: "026 - Cary CCSD 26",},
+{value: "440630360020000", label: "036 - Harrison SD 36",},
+{value: "440630460030000", label: "046 - Prairie Grove CSD 46",},
+{value: "440630470040000", label: "047 - Crystal Lake CCSD 47",},
+{value: "440630500260000", label: "050 - Harvard CUSD 50",},
+{value: "440631540160000", label: "154 - Marengo CHSD 154",},
+{value: "440631550160000", label: "155 - CHSD 155",},
+{value: "440631560160000", label: "156 - McHenry CHSD 156",},
+{value: "440631570160000", label: "157 - Richmond-Burton CHSD 157",},
+{value: "440631580220000", label: "158 - Cons SD 158",},
+{value: "440631650030000", label: "165 - Marengo-Union E Cons D 165",},
+{value: "440632000260000", label: "200 - Woodstock CUSD 200",},
+{value: "450670030260000", label: "003 - Valmeyer CUSD 3",},
+{value: "450670040260000", label: "004 - Columbia CUSD 4",},
+{value: "450670050260000", label: "005 - Waterloo CUSD 5",},
+{value: "450790010220000", label: "001 - Coulterville USD 1",},
+{value: "450791320260000", label: "132 - Red Bud CUSD 132",},
+{value: "450791340040000", label: "134 - Prairie Du Rocher CCSD 134",},
+{value: "450791380260000", label: "138 - Steeleville CUSD 138",},
+{value: "450791390260000", label: "139 - Chester CUSD 139",},
+{value: "450791400260000", label: "140 - Sparta CUSD 140",},
+{value: "460050010260000", label: "001 - Brown County CUSD 1",},
+{value: "460090150260000", label: "015 - Beardstown CUSD 15",},
+{value: "460090640260000", label: "064 - Virginia CUSD 64",},
+{value: "460092620260000", label: "262 - A-C Central CUSD 262",},
+{value: "460690010260000", label: "001 - Franklin CUSD 1",},
+{value: "460690060260000", label: "006 - Waverly CUSD 6",},
+{value: "460690110260000", label: "011 - Meredosia-Chambersburg CUSD 11",},
+{value: "460690270260000", label: "027 - Triopia CUSD 27",},
+{value: "460691170220000", label: "117 - Jacksonville SD 117",},
+{value: "460860010260000", label: "001 - Winchester CUSD 1",},
+{value: "460860020260000", label: "002 - Scott-Morgan CUSD 2",},
+{value: "470520080020000", label: "008 - Nelson Public SD No 8",},
+{value: "470521700220000", label: "170 - Dixon USD 170",},
+{value: "470522200020000", label: "220 - Steward ESD 220",},
+{value: "470522710260000", label: "271 - Paw Paw CUSD 271",},
+{value: "470522720260000", label: "272 - Amboy CUSD 272",},
+{value: "470522750260000", label: "275 - Ashton-Franklin Center CUSD 275",},
+{value: "470711440030000", label: "144 - Kings Cons SD 144",},
+{value: "470711610040000", label: "161 - Creston CCSD 161",},
+{value: "470712120170000", label: "212 - Rochelle Twp HSD 212",},
+{value: "470712200260000", label: "220 - Oregon CUSD 220",},
+{value: "470712210260000", label: "221 - Forrestville Valley CUSD 221",},
+{value: "470712220260000", label: "222 - Polo CUSD 222",},
+{value: "470712230260000", label: "223 - Meridian CUSD 223",},
+{value: "470712260260000", label: "226 - Byron CUSD 226",},
+{value: "470712310040000", label: "231 - Rochelle CCSD 231",},
+{value: "470712690040000", label: "269 - Eswood CCSD 269",},
+{value: "480720620020000", label: "062 - Pleasant Valley SD 62",},
+{value: "480720630020000", label: "063 - Norwood ESD 63",},
+{value: "480720660020000", label: "066 - Bartonville SD 66",},
+{value: "480720680020000", label: "068 - Oak Grove SD 68",},
+{value: "480720690020000", label: "069 - Pleasant Hill SD 69",},
+{value: "480720700020000", label: "070 - Monroe SD 70",},
+{value: "480721500250000", label: "150 - Peoria SD 150",},
+{value: "480722650260000", label: "265 - Farmington Central CUSD 265",},
+{value: "480723090260000", label: "309 - Brimfield CUSD 309",},
+{value: "480723100160000", label: "310 - Limestone CHSD 310",},
+{value: "480723160040000", label: "316 - Limestone Walters CCSD 316",},
+{value: "480723210260000", label: "321 - Il Valley Central USD 321",},
+{value: "480723220260000", label: "322 - Elmwood CUSD 322",},
+{value: "480723230260000", label: "323 - Dunlap CUSD 323",},
+{value: "480723250260000", label: "325 - Peoria Heights CUSD 325",},
+{value: "480723260260000", label: "326 - Princeville CUSD 326",},
+{value: "480723270260000", label: "327 - Illini Bluffs CUSD 327",},
+{value: "480723280030000", label: "328 - Hollis Cons SD 328",},
+{value: "490810290020000", label: "029 - Hampton SD 29",},
+{value: "490810300170000", label: "030 - United Twp HSD 30",},
+{value: "490810340020000", label: "034 - Silvis SD 34",},
+{value: "490810360020000", label: "036 - Carbon Cliff-Barstow SD 36",},
+{value: "490810370020000", label: "037 - East Moline SD 37",},
+{value: "490810400220000", label: "040 - Moline USD 40",},
+{value: "490810410250000", label: "041 - Rock Island SD 41",},
+{value: "490811000260000", label: "100 - Riverdale CUSD 100",},
+{value: "490812000260000", label: "200 - Sherrard CUSD 200",},
+{value: "490813000260000", label: "300 - Rockridge CUSD 300",},
+{value: "500820090260000", label: "009 - Lebanon CUSD 9",},
+{value: "500820190260000", label: "019 - Mascoutah CUD 19",},
+{value: "500820300030000", label: "030 - St Libory Cons SD 30",},
+{value: "500820400260000", label: "040 - Marissa CUSD 40",},
+{value: "500820600260000", label: "060 - New Athens CUSD 60",},
+{value: "500820700040000", label: "070 - Freeburg CCSD 70",},
+{value: "500820770160000", label: "077 - Freeburg CHSD 77",},
+{value: "500820850020000", label: "085 - Shiloh Village SD 85",},
+{value: "500820900040000", label: "090 - O Fallon CCSD 90",},
+{value: "500821040020000", label: "104 - Central SD 104",},
+{value: "500821050020000", label: "105 - Pontiac-W Holliday SD 105",},
+{value: "500821100040000", label: "110 - Grant CCSD 110",},
+{value: "500821130020000", label: "113 - Wolf Branch SD 113",},
+{value: "500821150020000", label: "115 - Whiteside SD 115",},
+{value: "500821160020000", label: "116 - High Mount SD 116",},
+{value: "500821180020000", label: "118 - Belleville SD 118",},
+{value: "500821190020000", label: "119 - Belle Valley SD 119",},
+{value: "500821300040000", label: "130 - Smithton CCSD 130",},
+{value: "500821600040000", label: "160 - Millstadt CCSD 160",},
+{value: "500821750020000", label: "175 - Harmony Emge SD 175",},
+{value: "500821810020000", label: "181 - Signal Hill SD 181",},
+{value: "500821870260000", label: "187 - Cahokia CUSD 187",},
+{value: "500821880220000", label: "188 - Brooklyn UD 188",},
+{value: "500821890220000", label: "189 - East St Louis SD 189",},
+{value: "500821960260000", label: "196 - Dupo CUSD 196",},
+{value: "500822010170000", label: "201 - Belleville Twp HSD 201",},
+{value: "500822030170000", label: "203 - O Fallon Twp HSD 203",},
+{value: "510840010260000", label: "001 - Tri City CUSD 1",},
+{value: "510840050260000", label: "005 - Ball Chatham CUSD 5",},
+{value: "510840080260000", label: "008 - Pleasant Plains CUSD 8",},
+{value: "510840100260000", label: "010 - Auburn CUSD 10",},
+{value: "510840110260000", label: "011 - Pawnee CUSD 11",},
+{value: "510840120260000", label: "012 - ILLIOPOLIS C U SCHOOL DIST 12",},
+{value: "510840130260000", label: "013 - DIVERNON CUSD 13",},
+{value: "510840140260000", label: "014 - Riverton CUSD 14",},
+{value: "510840150260000", label: "015 - Williamsville CUSD 15",},
+{value: "510840160260000", label: "016 - New Berlin CUSD 16",},
+{value: "510841860250000", label: "186 - Springfield SD 186",},
+{value: "530900500020000", label: "050 - District 50 Schools",},
+{value: "530900510020000", label: "051 - Central SD 51",},
+{value: "530900520020000", label: "052 - Washington SD 52",},
+{value: "530900760020000", label: "076 - Creve Coeur SD 76",},
+{value: "530900850020000", label: "085 - Robein SD 85",},
+{value: "530900860020000", label: "086 - East Peoria SD 86",},
+{value: "530900980020000", label: "098 - Rankin CSD 98",},
+{value: "530901020020000", label: "102 - N Pekin & Marquette Hght SD 102",},
+{value: "530901080020000", label: "108 - Pekin PSD 108",},
+{value: "530901370020000", label: "137 - South Pekin SD 137",},
+{value: "530903030160000", label: "303 - Pekin CSD 303",},
+{value: "530903080160000", label: "308 - Washington CHSD 308",},
+{value: "530903090160000", label: "309 - East Peoria CHSD 309",},
+{value: "530906060040000", label: "606 - Spring Lake CCSD 606",},
+{value: "530907010260000", label: "701 - Deer Creek-Mackinaw CUSD 701",},
+{value: "530907020260000", label: "702 - Tremont CUSD 702",},
+{value: "530907030260000", label: "703 - Delavan CUSD 703",},
+{value: "530907090260000", label: "709 - Morton CUSD 709",},
+{value: "540920010260000", label: "001 - Bismarck Henning CUSD 1",},
+{value: "540920020260000", label: "002 - Westville CUSD 2",},
+{value: "540920040260000", label: "004 - Georgetown-Ridge Farm CUD 4",},
+{value: "540920050260000", label: "005 - Catlin CUSD 5",},
+{value: "540920070260000", label: "007 - Rossville-Alvin CUSD 7",},
+{value: "540920100260000", label: "010 - Potomac CUSD 10",},
+{value: "540920110260000", label: "011 - Hoopeston Area CUSD 11",},
+{value: "540920120260000", label: "012 - Jamaica CUSD 12",},
+{value: "540920610030000", label: "061 - Armstrong-Ellis Cons SD 61",},
+{value: "540920760260000", label: "076 - Oakwood CUSD 76",},
+{value: "540921180240000", label: "118 - Danville CCSD 118",},
+{value: "540922250170000", label: "225 - Armstrong Twp HSD 225",},
+{value: "550980010260000", label: "001 - Erie CUSD 1",},
+{value: "550980020260000", label: "002 - River Bend CUSD 2",},
+{value: "550980030260000", label: "003 - Prophetstown-Lyndon-Tampico CUSD3",},
+{value: "550980050260000", label: "005 - Sterling CUSD 5",},
+{value: "550980060260000", label: "006 - Morrison CUSD 6",},
+{value: "550980120020000", label: "012 - East Coloma SD 12",},
+{value: "550980130020000", label: "013 - Rock Falls ESD 13",},
+{value: "550980140020000", label: "014 - Riverdale SD 14",},
+{value: "550980200020000", label: "020 - East Coloma - Nelson CESD 20",},
+{value: "550981450040000", label: "145 - Montmorency CCSD 145",},
+{value: "550983010170000", label: "301 - Rock Falls Twp HSD 301",},
+{value: "560990170020000", label: "017 - Channahon SD 17",},
+{value: "560990810020000", label: "081 - Union SD 81",},
+{value: "560990840020000", label: "084 - Rockdale SD 84",},
+{value: "560990860050000", label: "086 - Joliet PSD 86",},
+{value: "560990880020000", label: "088 - Chaney-Monge SD 88",},
+{value: "560990890020000", label: "089 - Fairmont SD 89",},
+{value: "560990900020000", label: "090 - Taft SD 90",},
+{value: "560990910020000", label: "091 - Lockport SD 91",},
+{value: "560990920020000", label: "092 - Will County SD 92",},
+{value: "560991140020000", label: "114 - Manhattan SD 114",},
+{value: "560991220020000", label: "122 - New Lenox SD 122",},
+{value: "560991590020000", label: "159 - Mokena SD 159",},
+{value: "560991610020000", label: "161 - Summit Hill SD 161",},
+{value: "560992020220000", label: "202 - Plainfield SD 202",},
+{value: "560992030040000", label: "203 - Elwood CCSD 203",},
+{value: "560992040170000", label: "204 - Joliet Twp HSD 204",},
+{value: "560992050170000", label: "205 - Lockport Twp HSD 205",},
+{value: "560992100160000", label: "210 - Lincoln Way CHSD 210",},
+{value: "07016113A020000", label: "113 - Lemont-Bromberek CSD 113A",},
+{value: "11012002C260000", label: "002 - Marshall CUSD 2C",},
+{value: "11012003C260000", label: "003 - Martinsville CUSD 3C",},
+{value: "11012004C260000", label: "004 - Casey-Westfield CUSD 4C",},
+{value: "11087003A260000", label: "003 - Cowden-Herrick CUSD 3A",},
+{value: "11087005A260000", label: "005 - Stewardson-Strasburg CUD 5A",},
+{value: "17053006J260000", label: "006 - Tri Point CUSD 6-J",},
+{value: "24032002C020000", label: "002 - Mazon-Verona-Kinsman ESD 2C",},
+{value: "24032024C040000", label: "024 - Nettle Creek CCSD 24C",},
+{value: "24032060C040000", label: "060 - Saratoga CCSD 60C",},
+{value: "24032072C040000", label: "072 - Gardner CCSD 72C",},
+{value: "51084003A260000", label: "003 - Rochester CUSD 3A",},
+{value: "56099030C040000", label: "030 - Troy CCSD 30C",},
+{value: "56099033C040000", label: "033 - Homer CCSD 33C",},
+{value: "56099070C040000", label: "070 - Laraway CCSD 70C",},
+{value: "56099088A020000", label: "088 - Richland GSD 88A",},
+{value: "56099157C040000", label: "157 - Frankfort CCSD 157C",},
+{value: "56099200U260000", label: "200 - Beecher CUSD 200U",},
+{value: "56099201U260000", label: "201 - Crete Monee CUSD 201U",},
+{value: "56099207U260000", label: "207 - Peotone CUSD 207U",},
+{value: "56099209U260000", label: "209 - Wilmington CUSD 209U",},
+{value: "56099255U260000", label: "255 - Reed Custer CUSD 255U",},
+{value: "56099365U260000", label: "365 - Valley View CUSD 365U",},
+];
+
+$("#project").css('width','100%');
+
+$( "#project" ).autocomplete({
+	minLength: 3,
+	source: listOdistricts,
+	focus: function( event, ui ) {
+		$( "#project" ).val( ui.item.label );
+		return false;
+	},
+	select: function( event, ui ) {
+		$( "#project" ).val( ui.item.label );
+		$( "#project-id" ).val( ui.item.value );
+		aID = ui.item.value;
+		return false;
+	},
+
+});
+
+// Loads the appropriate district json
+
+$('#distSEARCH').click(function() {
+	console.log(aID);
+	$( "#detailToggle" ).hide();
+		$.getJSON('static/lowincome/districts/' + aID + '.json', function(data){
+
+			$( "#distLIST" ).show();
+
+			var distHTML = "";
+			distHTML += '<p><table id="tableDschools"  class="display compact">';
+			distHTML += '<thead><tr><th>School</th><th>Type</th><th>2014<br>Elementary<br>meets/exceeds</th><th>Elem. Poverty-<br>Achievement<br>Index</th><th>2014<br>High School<br>meets/exceeds</th><th>H.S. Poverty-<br>Achievement<br>Index</th><th>2014<br>% low<br>income</th></tr></thead><tbody>';	
+
+
+
+//Create the list of schools	
+			$.each(data, function(i) {
+
+
+				if( data[i].lowinc2014 != 'None' ) { var lowinc14 = parseFloat(data[i].lowinc2014); } else { var lowinc14 = ''; };
+				if( data[i].elemcomp2014 != 'None' ) { var elemcomp14 = parseFloat(data[i].elemcomp2014); } else { var elemcomp14 = ''; };
+				if( data[i].zelemscore2014 != 'None' ) { var zelemscore14 = parseFloat(data[i].zelemscore2014); } else { var zelemscore14 = ''; };
+				if( data[i].hscomp2014 != 'None' ) { var hscomp14 = parseFloat(data[i].hscomp2014); } else { var hscomp14 = ''; };
+				if( data[i].zhsscore2014 != 'None' ) { var zhsscore14 = parseFloat(data[i].zhsscore2014); } else { var zhsscore14 = ''; };
+
+				distHTML += '<tr><td><a href="#schTITLES" class="schYEARS" value="' + data[i].name + '" id="' + data[i].schid + '" >' + data[i].name + '</a></td><td>' + data[i].type + '</td><td>' + elemcomp14 + '</td><td>' + zelemscore14 + '</td><td>' + hscomp14 + '</td><td>' + zhsscore14 + '</td><td>' + lowinc14 + '</td></tr>';
+			});
+			
+//END list of schools
+			distHTML += '</tbody></table></p><p class="source">*Testing or lottery-based school that may admit students outside a set attendance boundary. For more on how we marked these schools, <a href="#select">please click here.</a><br>For more about the state data we used, <a href="#aboutDATA">please click here.</a></p>';
+
+			$('#distLIST').html(distHTML);
+
+// activates the list as a datatable
+
+			$('#tableDschools').DataTable( {
+				responsive: true,
+				paging: false,
+				"order": [[ 0, "asc" ]]
+			} );
+
+
+// on click of school name, parses the info for the individual school
+
+			$('.schYEARS').click(function() {
+				var schoolid = '';
+				schoolid = $(this).attr('value');
+				console.log(schoolid);
+				$( "#detailToggle" ).show();
+
+				$.each(data, function(i, v) {
+					if (data[i].name.search(new RegExp(schoolid)) != -1){
+						console.log(data[i].name);
+
+						var lowinc2004 = parseFloat(data[i].lowinc2004);
+						var lowinc2005 = parseFloat(data[i].lowinc2005);
+						var lowinc2006 = parseFloat(data[i].lowinc2006);
+						var lowinc2007 = parseFloat(data[i].lowinc2007);
+						var lowinc2008 = parseFloat(data[i].lowinc2008);
+						var lowinc2009 = parseFloat(data[i].lowinc2009);
+						var lowinc2010 = parseFloat(data[i].lowinc2010);
+						var lowinc2011 = parseFloat(data[i].lowinc2011);
+						var lowinc2012 = parseFloat(data[i].lowinc2012);
+						var lowinc2013 = parseFloat(data[i].lowinc2013);
+						var lowinc2014 = parseFloat(data[i].lowinc2014);
+
+						var percmin2004 = parseFloat(data[i].percmin2004);
+						var percmin2005 = parseFloat(data[i].percmin2005);
+						var percmin2006 = parseFloat(data[i].percmin2006);
+						var percmin2007 = parseFloat(data[i].percmin2007);
+						var percmin2008 = parseFloat(data[i].percmin2008);
+						var percmin2009 = parseFloat(data[i].percmin2009);
+						var percmin2010 = parseFloat(data[i].percmin2010);
+						var percmin2011 = parseFloat(data[i].percmin2011);
+						var percmin2012 = parseFloat(data[i].percmin2012);
+						var percmin2013 = parseFloat(data[i].percmin2013);
+						var percmin2014 = parseFloat(data[i].percmin2014);
+
+						if( data[i].enroll2004 != 'None' ) { var enroll2004 = parseFloat(data[i].enroll2004); } else { var enroll2004 = ''; };
+						if( data[i].enroll2005 != 'None' ) { var enroll2005 = parseFloat(data[i].enroll2005); } else { var enroll2005 = ''; };
+						if( data[i].enroll2006 != 'None' ) { var enroll2006 = parseFloat(data[i].enroll2006); } else { var enroll2006 = ''; };
+						if( data[i].enroll2007 != 'None' ) { var enroll2007 = parseFloat(data[i].enroll2007); } else { var enroll2007 = ''; };
+						if( data[i].enroll2008 != 'None' ) { var enroll2008 = parseFloat(data[i].enroll2008); } else { var enroll2008 = ''; };
+						if( data[i].enroll2009 != 'None' ) { var enroll2009 = parseFloat(data[i].enroll2009); } else { var enroll2009 = ''; };
+						if( data[i].enroll2010 != 'None' ) { var enroll2010 = parseFloat(data[i].enroll2010); } else { var enroll2010 = ''; };
+						if( data[i].enroll2011 != 'None' ) { var enroll2011 = parseFloat(data[i].enroll2011); } else { var enroll2011 = ''; };
+						if( data[i].enroll2012 != 'None' ) { var enroll2012 = parseFloat(data[i].enroll2012); } else { var enroll2012 = ''; };
+						if( data[i].enroll2013 != 'None' ) { var enroll2013 = parseFloat(data[i].enroll2013); } else { var enroll2013 = ''; };
+						if( data[i].enroll2014 != 'None' ) { var enroll2014 = parseFloat(data[i].enroll2014); } else { var enroll2014 = ''; };
+
+						if( data[i].enrolldist2004 != 'None' ) { var enrolldist2004 = parseFloat(data[i].enrolldist2004); } else { var enrolldist2004 = ''; };
+						if( data[i].enrolldist2005 != 'None' ) { var enrolldist2005 = parseFloat(data[i].enrolldist2005); } else { var enrolldist2005 = ''; };
+						if( data[i].enrolldist2006 != 'None' ) { var enrolldist2006 = parseFloat(data[i].enrolldist2006); } else { var enrolldist2006 = ''; };
+						if( data[i].enrolldist2007 != 'None' ) { var enrolldist2007 = parseFloat(data[i].enrolldist2007); } else { var enrolldist2007 = ''; };
+						if( data[i].enrolldist2008 != 'None' ) { var enrolldist2008 = parseFloat(data[i].enrolldist2008); } else { var enrolldist2008 = ''; };
+						if( data[i].enrolldist2009 != 'None' ) { var enrolldist2009 = parseFloat(data[i].enrolldist2009); } else { var enrolldist2009 = ''; };
+						if( data[i].enrolldist2010 != 'None' ) { var enrolldist2010 = parseFloat(data[i].enrolldist2010); } else { var enrolldist2010 = ''; };
+						if( data[i].enrolldist2011 != 'None' ) { var enrolldist2011 = parseFloat(data[i].enrolldist2011); } else { var enrolldist2011 = ''; };
+						if( data[i].enrolldist2012 != 'None' ) { var enrolldist2012 = parseFloat(data[i].enrolldist2012); } else { var enrolldist2012 = ''; };
+						if( data[i].enrolldist2013 != 'None' ) { var enrolldist2013 = parseFloat(data[i].enrolldist2013); } else { var enrolldist2013 = ''; };
+						if( data[i].enrolldist2014 != 'None' ) { var enrolldist2014 = parseFloat(data[i].enrolldist2014); } else { var enrolldist2014 = ''; };
+
+						if( data[i].grades2004 != 'None' ) { var grades2004 = data[i].grades2004; } else { var grades2004 = ''; };
+						//if( data[i].grades2005 != 'None' ) { var grades2005 = data[i].grades2005; } else { var grades2005 = ''; };
+						if( data[i].grades2006 != 'None' ) { var grades2006 = data[i].grades2006; } else { var grades2006 = ''; };
+						if( data[i].grades2007 != 'None' ) { var grades2007 = data[i].grades2007; } else { var grades2007 = ''; };
+						if( data[i].grades2008 != 'None' ) { var grades2008 = data[i].grades2008; } else { var grades2008 = ''; };
+						if( data[i].grades2009 != 'None' ) { var grades2009 = data[i].grades2009; } else { var grades2009 = ''; };
+						if( data[i].grades2010 != 'None' ) { var grades2010 = data[i].grades2010; } else { var grades2010 = ''; };
+						if( data[i].grades2011 != 'None' ) { var grades2011 = data[i].grades2011; } else { var grades2011 = ''; };
+						if( data[i].grades2012 != 'None' ) { var grades2012 = data[i].grades2012; } else { var grades2012 = ''; };
+						if( data[i].grades2013 != 'None' ) { var grades2013 = data[i].grades2013; } else { var grades2013 = ''; };
+						if( data[i].grades2014 != 'None' ) { var grades2014 = data[i].grades2014; } else { var grades2014 = ''; };
+
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+						if( data[i].sel2004elem != 'None' ) { var sel2004elem = data[i].sel2004elem; } else { var sel2004elem = ''; };
+
+						var elemcomp2004 = parseFloat(data[i].elemcomp2004);
+						//var elemcomp2005 = parseFloat(data[i].elemcomp2005);
+						var elemcomp2006 = parseFloat(data[i].elemcomp2006);
+						var elemcomp2007 = parseFloat(data[i].elemcomp2007);
+						var elemcomp2008 = parseFloat(data[i].elemcomp2008);
+						var elemcomp2009 = parseFloat(data[i].elemcomp2009);
+						var elemcomp2010 = parseFloat(data[i].elemcomp2010);
+						var elemcomp2011 = parseFloat(data[i].elemcomp2011);
+						var elemcomp2012 = parseFloat(data[i].elemcomp2012);
+						var elemcomp2013 = parseFloat(data[i].elemcomp2013);
+						var elemcomp2014 = parseFloat(data[i].elemcomp2014);
+
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+						if( data[i].sel2004hs != 'None' ) { var sel2004hs = data[i].sel2004hs; } else { var sel2004hs = ''; };
+
+						var hscomp2004 = parseFloat(data[i].hscomp2004);
+						var hscomp2005 = parseFloat(data[i].hscomp2005);
+						var hscomp2006 = parseFloat(data[i].hscomp2006);
+						var hscomp2007 = parseFloat(data[i].hscomp2007);
+						var hscomp2008 = parseFloat(data[i].hscomp2008);
+						var hscomp2009 = parseFloat(data[i].hscomp2009);
+						var hscomp2010 = parseFloat(data[i].hscomp2010);
+						var hscomp2011 = parseFloat(data[i].hscomp2011);
+						var hscomp2012 = parseFloat(data[i].hscomp2012);
+						var hscomp2013 = parseFloat(data[i].hscomp2013);
+						var hscomp2014 = parseFloat(data[i].hscomp2014);
+
+						var zelemscore2004 = parseFloat(data[i].zelemscore2004);
+						//var zelemscore2005 = parseFloat(data[i].zelemscore2005);
+						var zelemscore2006 = parseFloat(data[i].zelemscore2006);
+						var zelemscore2007 = parseFloat(data[i].zelemscore2007);
+						var zelemscore2008 = parseFloat(data[i].zelemscore2008);
+						var zelemscore2009 = parseFloat(data[i].zelemscore2009);
+						var zelemscore2010 = parseFloat(data[i].zelemscore2010);
+						var zelemscore2011 = parseFloat(data[i].zelemscore2011);
+						var zelemscore2012 = parseFloat(data[i].zelemscore2012);
+						var zelemscore2013 = parseFloat(data[i].zelemscore2013);
+						var zelemscore2014 = parseFloat(data[i].zelemscore2014);
+
+
+						if( data[i].avgelem2004 != 'None' ) { var avgelem2004 = parseFloat(data[i].avgelem2004); } else { var avgelem2004 = ''; };
+						//if( data[i].avgelem2005 != 'None' ) { var avgelem2005 = parseFloat(data[i].avgelem2005); } else { var avgelem2005 = ''; };
+						if( data[i].avgelem2006 != 'None' ) { var avgelem2006 = parseFloat(data[i].avgelem2006); } else { var avgelem2006 = ''; };
+						if( data[i].avgelem2007 != 'None' ) { var avgelem2007 = parseFloat(data[i].avgelem2007); } else { var avgelem2007 = ''; };
+						if( data[i].avgelem2008 != 'None' ) { var avgelem2008 = parseFloat(data[i].avgelem2008); } else { var avgelem2008 = ''; };
+						if( data[i].avgelem2009 != 'None' ) { var avgelem2009 = parseFloat(data[i].avgelem2009); } else { var avgelem2009 = ''; };
+						if( data[i].avgelem2010 != 'None' ) { var avgelem2010 = parseFloat(data[i].avgelem2010); } else { var avgelem2010 = ''; };
+						if( data[i].avgelem2011 != 'None' ) { var avgelem2011 = parseFloat(data[i].avgelem2011); } else { var avgelem2011 = ''; };
+						if( data[i].avgelem2012 != 'None' ) { var avgelem2012 = parseFloat(data[i].avgelem2012); } else { var avgelem2012 = ''; };
+						if( data[i].avgelem2013 != 'None' ) { var avgelem2013 = parseFloat(data[i].avgelem2013); } else { var avgelem2013 = ''; };
+						if( data[i].avgelem2014 != 'None' ) { var avgelem2014 = parseFloat(data[i].avgelem2014); } else { var avgelem2014 = ''; };
+
+						if( data[i].stdvelem2004 != 'None' ) { var stdvelem2004 = parseFloat(data[i].stdvelem2004); } else { var stdvelem2004 = ''; };
+						//if( data[i].stdvelem2005 != 'None' ) { var stdvelem2005 = parseFloat(data[i].stdvelem2005); } else { var stdvelem2005 = ''; };
+						if( data[i].stdvelem2006 != 'None' ) { var stdvelem2006 = parseFloat(data[i].stdvelem2006); } else { var stdvelem2006 = ''; };
+						if( data[i].stdvelem2007 != 'None' ) { var stdvelem2007 = parseFloat(data[i].stdvelem2007); } else { var stdvelem2007 = ''; };
+						if( data[i].stdvelem2008 != 'None' ) { var stdvelem2008 = parseFloat(data[i].stdvelem2008); } else { var stdvelem2008 = ''; };
+						if( data[i].stdvelem2009 != 'None' ) { var stdvelem2009 = parseFloat(data[i].stdvelem2009); } else { var stdvelem2009 = ''; };
+						if( data[i].stdvelem2010 != 'None' ) { var stdvelem2010 = parseFloat(data[i].stdvelem2010); } else { var stdvelem2010 = ''; };
+						if( data[i].stdvelem2011 != 'None' ) { var stdvelem2011 = parseFloat(data[i].stdvelem2011); } else { var stdvelem2011 = ''; };
+						if( data[i].stdvelem2012 != 'None' ) { var stdvelem2012 = parseFloat(data[i].stdvelem2012); } else { var stdvelem2012 = ''; };
+						if( data[i].stdvelem2013 != 'None' ) { var stdvelem2013 = parseFloat(data[i].stdvelem2013); } else { var stdvelem2013 = ''; };
+						if( data[i].stdvelem2014 != 'None' ) { var stdvelem2014 = parseFloat(data[i].stdvelem2014); } else { var stdvelem2014 = ''; };
+
+						var zhsscore2004 = parseFloat(data[i].zhsscore2004);
+						var zhsscore2005 = parseFloat(data[i].zhsscore2005);
+						var zhsscore2006 = parseFloat(data[i].zhsscore2006);
+						var zhsscore2007 = parseFloat(data[i].zhsscore2007);
+						var zhsscore2008 = parseFloat(data[i].zhsscore2008);
+						var zhsscore2009 = parseFloat(data[i].zhsscore2009);
+						var zhsscore2010 = parseFloat(data[i].zhsscore2010);
+						var zhsscore2011 = parseFloat(data[i].zhsscore2011);
+						var zhsscore2012 = parseFloat(data[i].zhsscore2012);
+						var zhsscore2013 = parseFloat(data[i].zhsscore2013);
+						var zhsscore2014 = parseFloat(data[i].zhsscore2014);
+
+						if( data[i].avghs2004 != 'None' ) { var avghs2004 = parseFloat(data[i].avghs2004); } else { var avghs2004 = ''; };
+						if( data[i].avghs2005 != 'None' ) { var avghs2005 = parseFloat(data[i].avghs2005); } else { var avghs2005 = ''; };
+						if( data[i].avghs2006 != 'None' ) { var avghs2006 = parseFloat(data[i].avghs2006); } else { var avghs2006 = ''; };
+						if( data[i].avghs2007 != 'None' ) { var avghs2007 = parseFloat(data[i].avghs2007); } else { var avghs2007 = ''; };
+						if( data[i].avghs2008 != 'None' ) { var avghs2008 = parseFloat(data[i].avghs2008); } else { var avghs2008 = ''; };
+						if( data[i].avghs2009 != 'None' ) { var avghs2009 = parseFloat(data[i].avghs2009); } else { var avghs2009 = ''; };
+						if( data[i].avghs2010 != 'None' ) { var avghs2010 = parseFloat(data[i].avghs2010); } else { var avghs2010 = ''; };
+						if( data[i].avghs2011 != 'None' ) { var avghs2011 = parseFloat(data[i].avghs2011); } else { var avghs2011 = ''; };
+						if( data[i].avghs2012 != 'None' ) { var avghs2012 = parseFloat(data[i].avghs2012); } else { var avghs2012 = ''; };
+						if( data[i].avghs2013 != 'None' ) { var avghs2013 = parseFloat(data[i].avghs2013); } else { var avghs2013 = ''; };
+						if( data[i].avghs2014 != 'None' ) { var avghs2014 = parseFloat(data[i].avghs2014); } else { var avghs2014 = ''; };
+
+						if( data[i].stdvhs2004 != 'None' ) { var stdvhs2004 = parseFloat(data[i].stdvhs2004); } else { var stdvhs2004 = ''; };
+						if( data[i].stdvhs2005 != 'None' ) { var stdvhs2005 = parseFloat(data[i].stdvhs2005); } else { var stdvhs2005 = ''; };
+						if( data[i].stdvhs2006 != 'None' ) { var stdvhs2006 = parseFloat(data[i].stdvhs2006); } else { var stdvhs2006 = ''; };
+						if( data[i].stdvhs2007 != 'None' ) { var stdvhs2007 = parseFloat(data[i].stdvhs2007); } else { var stdvhs2007 = ''; };
+						if( data[i].stdvhs2008 != 'None' ) { var stdvhs2008 = parseFloat(data[i].stdvhs2008); } else { var stdvhs2008 = ''; };
+						if( data[i].stdvhs2009 != 'None' ) { var stdvhs2009 = parseFloat(data[i].stdvhs2009); } else { var stdvhs2009 = ''; };
+						if( data[i].stdvhs2010 != 'None' ) { var stdvhs2010 = parseFloat(data[i].stdvhs2010); } else { var stdvhs2010 = ''; };
+						if( data[i].stdvhs2011 != 'None' ) { var stdvhs2011 = parseFloat(data[i].stdvhs2011); } else { var stdvhs2011 = ''; };
+						if( data[i].stdvhs2012 != 'None' ) { var stdvhs2012 = parseFloat(data[i].stdvhs2012); } else { var stdvhs2012 = ''; };
+						if( data[i].stdvhs2013 != 'None' ) { var stdvhs2013 = parseFloat(data[i].stdvhs2013); } else { var stdvhs2013 = ''; };
+						if( data[i].stdvhs2014 != 'None' ) { var stdvhs2014 = parseFloat(data[i].stdvhs2014); } else { var stdvhs2014 = ''; };
+
+						var titlesHTML = '';
+						var detailHTML = '';
+						var gradesHTML = '';
+
+// presents the basic school info. Figures out if it's a charter net school, which means the link for more info goes to the state report card site
+
+						titlesHTML += '<br><br><br><br><p class="source"><a href="#' + data[i].schid + '">Return to list</a></p><h3>' + data[i].name + '</h3><p><strong>District:</strong> ' + data[i].dist + '<br><strong>City, county: </strong>' + data[i].city + ', ' + data[i].county + ' COUNTY<br><strong>Type: </strong>' + data[i].type;
+
+
+						if( data[i].type == 'CHARTER NET SCH' ) {titlesHTML += '<br><a href="http://www.illinoisreportcard.com/School.aspx?schoolId=' + data[i].schid + '" target="_blank">Click here to view more about this school</a> at the Illinois\' report cards site, including detailed information about demographics, scores, maps and contact information.';
+						} else if ( data[i].sel2014elem == 'Yes' || data[i].sel2014hs == 'Yes' ) { 
+							titlesHTML += '<br><a href="http://reportcards.dailyherald.com/details/?id-name=' + data[i].schid + '" target="_blank">Click here to view more about this school</a> at the Daily Herald School Report Cards site, including detailed information about demographics, scores, maps and contact information.';
+						} else { 
+							detailHTML += '</p>'; };
+
+						if( data[i].sel2004elem == 'Yes' || data[i].sel2005elem == 'Yes' || data[i].sel2006elem == 'Yes' || data[i].sel2007elem == 'Yes' || data[i].sel2008elem == 'Yes' || data[i].sel2009elem == 'Yes' ||  data[i].sel2010elem == 'Yes' ||  data[i].sel2011elem == 'Yes' ||  data[i].sel2012elem == 'Yes' ||  data[i].sel2013elem == 'Yes' || data[i].sel2014elem == 'Yes' ) {
+
+						detailHTML += '<p><table id="detailOsch" class="table table-striped"><thead><tr><th>Year</th><th>2004</th><th>2006</th><th>2007</th><th>2008</th><th>2009</th><th>2010</th><th>2011</th><th>2012</th><th>2013</th><th>2014</th></tr></thead><tbody>';
+
+
+//  code to use if highcharts is present - this is the ISAT, low income and minority percent
+
+							$('#elemMEchart').show();
+							$('#elemMEtitle').show();
+
+							var elemMEChart = new Highcharts.Chart({
+							    chart: {
+							      renderTo: 'elemMEchart',
+								  height: '400'
+							    },
+							    title: {
+							      text: null
+							    },
+
+							    legend: {
+							      enabled: true
+							    },
+
+							    xAxis: {
+							      title: {
+							        text: 'Year'
+							      },
+							    plotBands: [{ 
+							                from: -0.5,
+							                to: 0.5,
+							                color: '#e1e1e1',
+							                label: {
+							                    text: 'Pre-NCLB <br>ISAT',
+							                    align: 'center',
+							                    style: {
+							                        color: '#606060'
+							                    }
+							                }
+							            }, { 
+							                from: 0.5,
+							                to: 7.5,
+							                color: 'rgba(0, 0, 0, 0)'
+							            },{
+							                from: 7.5,
+							                to: 10.5,
+							                 color: '#e1e1e1'
+							            }],
+							      categories: ['2004', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014' ],
+							      labels: {
+							                staggerLines: 2
+							            }
+							     },
+
+							    yAxis: {
+							      title: {
+							        text: 'PERCENT'
+							      },
+							      labels: {
+							        overflow: 'justify'
+							      },
+							      min: 0,
+							      max: 100,
+							      tickInterval: 10
+							    },
+
+								series: [
+									{
+										type: 'column',
+										name: '% Meets/Exceeds',
+										data: $.map([elemcomp2004, elemcomp2006, elemcomp2007, elemcomp2008, elemcomp2009, elemcomp2010, elemcomp2011, elemcomp2012, elemcomp2013, elemcomp2014], function (valueELEMcomp) { return isNaN(valueELEMcomp) ? { y: null } : valueELEMcomp;
+										})
+									},
+									{
+										type: 'line',
+										name: '% Low Income',
+										data: $.map([lowinc2004, lowinc2006, lowinc2007, lowinc2008, lowinc2009, lowinc2010, lowinc2011, lowinc2012, lowinc2013, lowinc2014], function (valueELEMlow) { return isNaN(valueELEMlow) ? { y: null } : valueELEMlow;
+										})
+									},
+									{
+										type: 'line',
+										name: '% Minority',
+										data: $.map([percmin2004, percmin2006, percmin2007, percmin2008, percmin2009, percmin2010, percmin2011, percmin2012, percmin2013, percmin2014], function (valueELEMmin) { return isNaN(valueELEMmin) ? { y: null } : valueELEMmin;
+										})
+									}
+								],
+
+							   tooltip: {
+							      crosshairs: true,
+							      shared: true,
+							      useHTML: true,
+							      valueSuffix: '%'
+							  },
+
+							});
+
+// This is the elementary school z score
+
+
+							$('#ZelemChart').show();
+							$('#Zelemtitle').show();
+
+							var zELEM = new Highcharts.Chart({
+							    chart: {
+							      defaultSeriesType: 'column',
+							      renderTo: 'ZelemChart',
+								  height: '400'
+							    },
+							    title: {
+							      text: null 
+							    },
+
+							    legend: {
+							      enabled: false
+							    },
+
+							    xAxis: {
+							      title: {
+							        text: 'Year'
+							      },
+							    plotBands: [{ 
+							                from: -0.5,
+							                to: 0.5,
+							                color: '#e1e1e1',
+							                label: {
+							                    text: 'Pre-NCLB<br>ISAT',
+							                    align: 'center',
+							                    style: {
+							                        color: '#606060'
+							                    }
+							                }
+							            }, { 
+							                from: 0.5,
+							                to: 7.5,
+							                color: 'rgba(0, 0, 0, 0)'
+							            },{
+							                from: 7.5,
+							                to: 10.5,
+							                 color: '#e1e1e1'
+							            }],
+							      categories: ['2004', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014' ],
+							      labels: {
+							                staggerLines: 2
+							            }
+							     },
+
+							    yAxis: {
+							      title: {
+							        text: 'INDEX SCORE'
+							      },
+							      labels: {
+							        overflow: 'justify'
+							      },
+							      plotLines:[{
+					                value:0,
+					                color: '#ff0000',
+					                width:1,
+					                zIndex:4,
+					                label: {
+					                    text: '0 = AVERAGE',
+					                    align: 'left',
+					                    style: {
+					                        color: '#606060'
+					                    }
+					                }
+				                }],
+							      min: -4,
+							      max: 5,
+							      tickInterval: 1
+							    },
+
+							    series: [
+								    {
+								      name: 'Elem. Index score',
+								      data: $.map([zelemscore2004, zelemscore2006, zelemscore2007, zelemscore2008, zelemscore2009, zelemscore2010, zelemscore2011, zelemscore2012, zelemscore2013, zelemscore2014], function (valueZsch) { return isNaN(valueZsch) ? { y: null } : valueZsch;
+								    })
+								  }
+							   ],
+
+							   tooltip: {
+							      crosshairs: true,
+							      shared: true,
+							      useHTML: true
+							  },
+
+							});
+
+
+//  END code to use if highcharts is present
+
+
+
+//	Tab code to use if highcharts is unavailable - shows ISAT, low inc, minority and z score in the tab chart
+
+//							detailHTML += '<tr><td>Avg. ISAT meets/exceeds</td><td>' + elemcomp2004 + '</td><td>' + elemcomp2006 + '</td><td>' + elemcomp2007 + '</td><td>' + elemcomp2008 + '</td><td>' + elemcomp2009 + '</td><td>' + elemcomp2010 + '</td><td>' + elemcomp2011 + '</td><td>' + elemcomp2012 + '</td><td>' + elemcomp2013 + '</td><td>' + elemcomp2014 + '</td></tr><tr><td>Poverty-Achievement Index<br>(0 = average)</td><td>'zelemscore2004 + '</td><td>' + zelemscore2006 + '</td><td>' + zelemscore2007 + '</td><td>' + zelemscore2008 + '</td><td>' + zelemscore2009 + '</td><td>' + zelemscore2010 + '</td><td>' + zelemscore2011 + '</td><td>' + zelemscore2012 + '</td><td>' + zelemscore2013 + '</td><td>' + zelemscore2014 + '</td></tr><tr><td>Percent low income students</td><td>' + lowinc2004 + '</td><td>' + lowinc2006 + '</td><td>' + lowinc2007 + '</td><td>' + lowinc2008 + '</td><td>' + lowinc2009 + '</td><td>' + lowinc2010 + '</td><td>' + lowinc2011 + '</td><td>' + lowinc2012 + '</td><td>' + lowinc2013 + '</td><td>' + lowinc2014 + '</td></tr><tr><td>Percent minority students</td><td>' + percmin2004 + '</td><td>' + percmin2006 + '</td><td>' + percmin2007 + '</td><td>' + percmin2008 + '</td><td>' + percmin2009 + '</td><td>' + percmin2010 + '</td><td>' + percmin2011 + '</td><td>' + percmin2012 + '</td><td>' + percmin2013 + '</td><td>' + percmin2014 + '</td></tr>';
+
+
+//	END Tab code to use if highcharts is unavailable - this shows various stats in a tab chart
+
+							detailHTML += '<tr><td>Avg. meets/exceeds for all elementary schools in income range</td><td>' + avgelem2004 + '</td><td>' + avgelem2006 + '</td><td>' + avgelem2007 + '</td><td>' + avgelem2008 + '</td><td>' + avgelem2009 + '</td><td>' + avgelem2010 + '</td><td>' + avgelem2011 + '</td><td>' + avgelem2012 + '</td><td>' + avgelem2013 + '</td><td>' + avgelem2014 + '</td></tr><tr><td>Standard dev. for range</td><td>' + stdvelem2004 + '</td><td>' + stdvelem2006 + '</td><td>' + stdvelem2007 + '</td><td>' + stdvelem2008 + '</td><td>' + stdvelem2009 + '</td><td>' + stdvelem2010 + '</td><td>' + stdvelem2011 + '</td><td>' + stdvelem2012 + '</td><td>' + stdvelem2013 + '</td><td>' + stdvelem2014 + '</td></tr>';
+
+							detailHTML += '<tr><td>School enrollment</td><td>' + enroll2004 + '</td><td>' + enroll2006 + '</td><td>' + enroll2007 + '</td><td>' + enroll2008 + '</td><td>' + enroll2009 + '</td><td>' + enroll2010 + '</td><td>' + enroll2011 + '</td><td>' + enroll2012 + '</td><td>' + enroll2013 + '</td><td>' + enroll2014 + '</td></tr><tr><td>District enrollment</td><td>' + enrolldist2004 + '</td><td>' + enrolldist2006 + '</td><td>' + enrolldist2007 + '</td><td>' + enrolldist2008 + '</td><td>' + enrolldist2009 + '</td><td>' + enrolldist2010 + '</td><td>' + enrolldist2011 + '</td><td>' + enrolldist2012 + '</td><td>' + enrolldist2013 + '</td><td>' + enrolldist2014 + '</td></tr></tbody></table></p>';
+
+							gradesHTML += '<p><strong>Grades served.</strong> If no grades are listed, the data is either unavailable or the school was closed that year.<ul><li>2004 grades at school: ' + data[i].grades2004 + '</li><li>2006 grades at school: ' + data[i].grades2006 + '</li><li>2007 grades at school: ' + data[i].grades2007 + '</li><li>2008 grades at school: ' + data[i].grades2008 + '</li><li>2009 grades at school: ' + data[i].grades2009 + '</li><li>2010 grades at school: ' + data[i].grades2010 + '</li><li>2011 grades at school: ' + data[i].grades2011 + '</li><li>2012 grades at school: ' + data[i].grades2012 + '</li><li>2013 grades at school: ' + data[i].grades2013 + '</li><li>2014 grades at school: ' + data[i].grades2014 + '</li></ul></p>';
+
+
+						} else { 
+							$('#elemMEchart').hide();
+							$('#ZelemChart').hide();
+							$('#elemMEtitle').hide();
+							$('#Zelemtitle').hide();
+							var junkvar = ''; 
+							};
+
+// sets up HS charts
+
+						if( data[i].sel2004hs == 'Yes' || data[i].sel2005hs == 'Yes'  || data[i].sel2006hs == 'Yes' || data[i].sel2007hs == 'Yes' || data[i].sel2008hs == 'Yes' || data[i].sel2009hs == 'Yes' || data[i].sel2010hs == 'Yes' || data[i].sel2011hs == 'Yes' || data[i].sel2012hs == 'Yes' || data[i].sel2013hs == 'Yes' || data[i].sel2014hs == 'Yes') { 
+
+						detailHTML += '<p><table id="detailOsch" class="table table-striped"><thead><tr><th>Year</th><th>2004</th><th>2005</th><th>2006</th><th>2007</th><th>2008</th><th>2009</th><th>2010</th><th>2011</th><th>2012</th><th>2013</th><th>2014</th></tr></thead><tbody>';
+
+
+//  code to use if highcharts is present - shows PSAE, low income and minority percents
+
+							$('#hsMEchart').show();
+							$('#hsMEtitle').show();
+
+							var hsMEChart = new Highcharts.Chart({
+							    chart: {
+							      renderTo: 'hsMEchart',
+								  height: '400'
+							    },
+							    title: {
+							      text: null
+							    },
+
+							    legend: {
+							      enabled: true
+							    },
+
+							    xAxis: {
+							      title: {
+							        text: 'Year'
+							      },
+							      categories: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014' ],
+							      labels: {
+							                staggerLines: 2
+							            }
+							     },
+
+							    yAxis: {
+							      title: {
+							        text: 'PERCENT'
+							      },
+							      labels: {
+							        overflow: 'justify'
+							      },
+							      min: 0,
+							      max: 100,
+							      tickInterval: 10
+							    },
+
+								series: [
+									{
+										type: 'column',
+										name: '% Meets/Exceeds',
+										data: $.map([hscomp2004, hscomp2005, hscomp2006, hscomp2007, hscomp2008, hscomp2009, hscomp2010, hscomp2011, hscomp2012, hscomp2013, hscomp2014], function (valuehscomp) { return isNaN(valuehscomp) ? { y: null } : valuehscomp;
+										})
+									},
+									{
+										type: 'line',
+										name: '% Low Income',
+										data: $.map([lowinc2004, lowinc2005, lowinc2006, lowinc2007, lowinc2008, lowinc2009, lowinc2010, lowinc2011, lowinc2012, lowinc2013, lowinc2014], function (valuehslow) { return isNaN(valuehslow) ? { y: null } : valuehslow;
+										})
+									},
+									{
+										type: 'line',
+										name: '% Minority',
+										data: $.map([percmin2004, percmin2005, percmin2006, percmin2007, percmin2008, percmin2009, percmin2010, percmin2011, percmin2012, percmin2013, percmin2014], function (valuehsmin) { return isNaN(valuehsmin) ? { y: null } : valuehsmin;
+										})
+									}
+								],
+
+							   tooltip: {
+							      crosshairs: true,
+							      shared: true,
+							      useHTML: true,
+							      valueSuffix: '%'
+							  },
+
+							});
+
+
+// high school z score chart
+
+							$('#ZhsChart').show();
+							$('#Zhstitle').show();
+
+							var zHS = new Highcharts.Chart({
+							    chart: {
+							    	defaultSeriesType: 'column',
+							    	renderTo: 'ZhsChart',
+									height: '400'
+							    },
+							    title: {
+							      text: null
+							    },
+
+							    legend: {
+							      enabled: false
+							    },
+
+							    xAxis: {
+							      title: {
+							        text: 'Year'
+							      },
+							      categories: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014' ],
+							      labels: {
+							                staggerLines: 2
+							            }
+							     },
+
+							    yAxis: {
+							      title: {
+							        text: 'INDEX SCORE'
+							      },
+							      labels: {
+							        overflow: 'justify'
+							      },
+							      plotLines:[{
+					                value:0,
+					                color: '#ff0000',
+					                width:1,
+					                zIndex:4,
+					                label: {
+					                    text: '0 = AVERAGE',
+					                    align: 'left',
+					                    style: {
+					                        color: '#606060'
+					                    }
+					                }
+				                }],
+							      min: -4,
+							      max: 5,
+							      tickInterval: 1
+							    },
+
+							    series: [
+								    {
+								      name: 'H.S.Index score',
+								      data: $.map([zhsscore2004, zhsscore2005, zhsscore2006, zhsscore2007, zhsscore2008, zhsscore2009, zhsscore2010, zhsscore2011, zhsscore2012, zhsscore2013, zhsscore2014], function (valueZhs) { return isNaN(valueZhs) ? { y: null } : valueZhs;
+								    })
+								  }
+							   ],
+
+							   tooltip: {
+							      crosshairs: true,
+							      shared: true,
+							      useHTML: true
+							  },
+
+							});
+
+
+//  END code to use if highcharts is present
+
+//	Tab code to use if highcharts is unavailable - shows PSAE, low inc, minority and z score in the tab chart
+
+//							detailHTML += '<tr><td>Avg. PSAE meets/exceeds</td><td>' + hscomp2004 + '</td><td>' + hscomp2005 + '</td><td>' + hscomp2006 + '</td><td>' + hscomp2007 + '</td><td>' + hscomp2008 + '</td><td>' + hscomp2009 + '</td><td>' + hscomp2010 + '</td><td>' + hscomp2011 + '</td><td>' + hscomp2012 + '</td><td>' + hscomp2013 + '</td><td>' + hscomp2014 + '</td></tr><tr><td>Poverty-Achievement Index<br>(0 = average)</td><td>'zhsscore2004 + '</td><td>' + zhsscore2005 + '</td><td>' + zhsscore2006 + '</td><td>' + zhsscore2007 + '</td><td>' + zhsscore2008 + '</td><td>' + zhsscore2009 + '</td><td>' + zhsscore2010 + '</td><td>' + zhsscore2011 + '</td><td>' + zhsscore2012 + '</td><td>' + zhsscore2013 + '</td><td>' + zhsscore2014 + '</td></tr><tr><td>Percent low income students</td><td>' + lowinc2004 + '</td><td>' + lowinc2005 + '</td><td>' + lowinc2006 + '</td><td>' + lowinc2007 + '</td><td>' + lowinc2008 + '</td><td>' + lowinc2009 + '</td><td>' + lowinc2010 + '</td><td>' + lowinc2011 + '</td><td>' + lowinc2012 + '</td><td>' + lowinc2013 + '</td><td>' + lowinc2014 + '</td></tr><tr><td>Percent minority students' + percmin2004 + '</td><td>' + percmin2005 + '</td><td>' + percmin2006 + '</td><td>' + percmin2007 + '</td><td>' + percmin2008 + '</td><td>' + percmin2009 + '</td><td>' + percmin2010 + '</td><td>' + percmin2011 + '</td><td>' + percmin2012 + '</td><td>' + percmin2013 + '</td><td>' + percmin2014 + '</td></tr>';
+
+//	END Tab code to use if highcharts is unavailable - shows tab charts of various stats
+
+
+							detailHTML += '<tr><td>Avg. meets/exceeds for all high schools in income range</td><td>' + avghs2004 + '</td><td>' + avghs2005 + '</td><td>' + avghs2006 + '</td><td>' + avghs2007 + '</td><td>' + avghs2008 + '</td><td>' + avghs2009 + '</td><td>' + avghs2010 + '</td><td>' + avghs2011 + '</td><td>' + avghs2012 + '</td><td>' + avghs2013 + '</td><td>' + avghs2014 + '</td></tr><tr><td>Standard dev. for range</td><td>' + stdvhs2004 + '</td><td>' + stdvhs2005 + '</td><td>' + stdvhs2006 + '</td><td>' + stdvhs2007 + '</td><td>' + stdvhs2008 + '</td><td>' + stdvhs2009 + '</td><td>' + stdvhs2010 + '</td><td>' + stdvhs2011 + '</td><td>' + stdvhs2012 + '</td><td>' + stdvhs2013 + '</td><td>' + stdvhs2014 + '</td></tr>';
+
+							detailHTML += '<tr><td>School enrollment</td><td>' + enroll2004 + '</td><td>' + enroll2005 + '</td><td>' + enroll2006 + '</td><td>' + enroll2007 + '</td><td>' + enroll2008 + '</td><td>' + enroll2009 + '</td><td>' + enroll2010 + '</td><td>' + enroll2011 + '</td><td>' + enroll2012 + '</td><td>' + enroll2013 + '</td><td>' + enroll2014 + '</td></tr><tr><td>District enrollment</td><td>' + enrolldist2004 + '</td><td>' + enrolldist2005 + '</td><td>' + enrolldist2006 + '</td><td>' + enrolldist2007 + '</td><td>' + enrolldist2008 + '</td><td>' + enrolldist2009 + '</td><td>' + enrolldist2010 + '</td><td>' + enrolldist2011 + '</td><td>' + enrolldist2012 + '</td><td>' + enrolldist2013 + '</td><td>' + enrolldist2014 + '</td></tr></tbody></table></p>';
+
+							gradesHTML += '<p><strong>Grades served.</strong> If no grades are listed, the data is either unavailable or the school was closed that year.<ul><li>2004 grades at school: ' + data[i].grades2004 + '</li><li>2005 grades at school: ' + data[i].grades2005 + '</li><li>2006 grades at school: ' + data[i].grades2006 + '</li><li>2007 grades at school: ' + data[i].grades2007 + '</li><li>2008 grades at school: ' + data[i].grades2008 + '</li><li>2009 grades at school: ' + data[i].grades2009 + '</li><li>2010 grades at school: ' + data[i].grades2010 + '</li><li>2011 grades at school: ' + data[i].grades2011 + '</li><li>2012 grades at school: ' + data[i].grades2012 + '</li><li>2013 grades at school: ' + data[i].grades2013 + '</li><li>2014 grades at school: ' + data[i].grades2014 + '</li></ul></p>';
+
+
+
+						} else { 
+								$('#hsMEchart').hide();
+								$('#ZhsChart').hide();
+								$('#hsMEtitle').hide();
+								$('#Zhstitle').hide();
+								var junkvar = ''; };
+
+					$('#schTITLES').html(titlesHTML);
+					$('#schDETAIL').html(detailHTML);
+					$('#schGRADES').html(gradesHTML);
+
+					};
+				});
+			});
+		});
+	});
+});
+
+</script>
+
+<script> 
+  
+//  code to use if highcharts is present - these are the charts in the body of the web page
+
+// elementary ISAT scores by income level
+
+var elementaryChart = new Highcharts.Chart({
+    chart: {
+      renderTo: 'ELEMchart',
+	  height: '450'
+    },
+    title: {
+      text: null
+    },
+
+    legend: {
+      enabled: false
+    },
+
+    xAxis: {
+      title: {
+        text: 'Year'
+      },
+    plotBands: [
+    		{ 
+                from: -0.5,
+                to: 0.5,
+                color: '#e1e1e1',
+                label: {
+                    text: 'Pre-NCLB<br>ISAT',
+                    align: 'center',
+                    style: {
+                        color: '#606060'
+                    }
+                }
+            }, { 
+                from: 0.5,
+                to: 9,
+                color: 'rgba(0, 0, 0, 0)'
+            },{
+                from: 8,
+                to: 10.5,
+                 color: '#e1e1e1'
+            }],
+      categories: ['2004', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014' ],
+      labels: {
+                staggerLines: 2
+            }
+     },
+
+    yAxis: {
+      title: {
+        text: 'AVG. MEETS/EXCEEDS'
+      },
+      labels: {
+        overflow: 'justify'
+      },
+       min: 0,
+      max: 100,
+      tickInterval: 10
+    },
+
+    series: [
+	    {
+	      type: 'line',
+	      name: '0-9.9%',
+	      data: [null, 90.4, 91.1, 91.6, 92.8, 93.6, 94.7, 95.2, 83.2, 84.0]
+	    },
+	    {
+	      type: 'line',
+	      name: '10-19.9%',
+	      data: [null, 86.8, 87.6, 88.2, 89.2, 90.5, 91.8, 92.2, 77.1, 78.0]
+	    },
+	    {
+	      type: 'line',
+	      name: '20-29.9%',
+	      data: [null, 83.6, 85.2, 86.1, 86.8, 88.1, 89.2, 89.8, 71.2, 72.3]
+	    },
+	    {
+	      type: 'line',
+	      name: '30-39.9%',
+	      data: [null, 81.9, 82.9, 83.5, 84.7, 85.7, 87.3, 87.4, 66.1, 65.5]
+	    },
+	    {
+	      type: 'line',
+	      name: '40-49.9%',
+	      data: [null, 79.4, 79.9, 81.0, 81.5, 83.0, 84.6, 84.8, 60.5, 60.5]
+	    },
+	    {
+	      type: 'line',
+	      name: '50-59.9%',
+	      data: [null, 76.2, 78.0, 77.6, 79.3, 80.0, 81.7, 82.0, 56.8, 56.2]
+	    },
+	    {
+	      type: 'line',
+	      name: '60-69.9%',
+	      data: [null, 71.7, 74.1, 72.7, 75.5, 76.1, 78.9, 79.1, 52.7, 52.0]
+	    },
+	    {
+	      type: 'line',
+	      name: '70-79.9%',
+	      data: [null, 67.2, 68.8, 69.8, 70.4, 72.5, 75.3, 75.4, 48.1, 47.2]
+	    },
+ 	    {
+	      type: 'line',
+	      name: '80-89.9%',
+	      data: [null, 62.8, 65.2, 65.6, 65.3, 70.8, 72.0, 71.6, 42.9, 42.5]
+	    },
+	    {
+	      type: 'line',
+	      name: '90-100%',
+	      data: [null, 55.4, 57.4, 58.7, 60.5, 62.4, 66.4, 66.9, 38.1, 39.0]
+	    },
+	    {
+	      type: 'line',
+	      name: '0-9.9%',
+	      data: [82.8, null, null, null, null, null, null, null, null, null]
+	    },
+	    {
+	      type: 'line',
+	      name: '10-19.9%',
+	      data: [76.7, null, null, null, null, null, null, null, null, null]
+	    },
+	    {
+	      type: 'line',
+	      name: '20-29.9%',
+	      data: [73.9, null, null, null, null, null, null, null, null, null]
+	    },
+	    {
+	      type: 'line',
+	      name: '30-39.9%',
+	      data: [70.8, null, null, null, null, null, null, null, null, null]
+	    },
+	    {
+	      type: 'line',
+	      name: '40-49.9%',
+	      data: [66.7, null, null, null, null, null, null, null, null, null]
+	    },
+	    {
+	      type: 'line',
+	      name: '50-59.9%',
+	      data: [63.6, null, null, null, null, null, null, null, null, null]
+	    },
+	    {
+	      type: 'line',
+	      name: '60-69.9%',
+	      data: [58.5, null, null, null, null, null, null, null, null, null]
+	    },
+	    {
+	      type: 'line',
+	      name: '70-79.9%',
+	      data: [51.0, null, null, null, null, null, null, null, null, null]
+	    },
+ 	    {
+	      type: 'line',
+	      name: '80-89.9%',
+	      data: [46.7, null, null, null, null, null, null, null, null, null]
+	    },
+	    {
+	      type: 'line',
+	      name: '90-100%',
+	      data: [39.3, null, null, null, null, null, null, null, null, null]
+	    }
+   ],
+
+   tooltip: {
+      crosshairs: true,
+      shared: true,
+      useHTML: true,
+      valueSuffix: '%'
+  },
+
+});
+
+
+// HS chart of PSAE scores by income level and year
+
+
+var highschoolChart = new Highcharts.Chart({
+    chart: {
+      renderTo: 'HSchart',
+	  height: '450'
+    },
+    title: {
+      text: null
+    },
+
+    legend: {
+      enabled: false
+    },
+
+    xAxis: {
+      title: {
+        text: 'Year'
+      },
+      categories: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014' ],
+      labels: {
+                staggerLines: 2
+            }
+     },
+
+    yAxis: {
+      title: {
+        text: 'AVG. MEETS/EXCEEDS'
+      },
+      labels: {
+        overflow: 'justify'
+      },
+      min: 0,
+      max: 100,
+      tickInterval: 10
+    },
+
+    series: [
+	    {
+	      type: 'line',
+	      name: '0-12.4%',
+	      data: [64.5, 64.9, 64.9, 62.5, 65.0, 67.1, 67.9, 70.0, 72.9, 71.1, 74.2]
+	    },
+	    {
+	      type: 'line',
+	      name: '12.5-24.9%',
+	      data: [56.6, 57.2, 56.1, 54.3, 55.8, 57.7, 59.1, 60.5, 61.6, 66.3, 67.2]
+	    },
+	    {
+	      type: 'line',
+	      name: '25-37.4%',
+	      data: [52.4, 53.5, 51.6, 50.3, 50.9, 51.3, 52.4, 53.4, 54.0, 56.7, 58.2]
+	    },
+	    {
+	      type: 'line',
+	      name: '37.5-49.9%',
+	      data: [46.8, 44.9, 46.6, 42.1, 43.2, 43.5, 47.8, 46.1, 47.7, 50.1, 51.3]
+	    },
+	    {
+	      type: 'line',
+	      name: '50-62.4%',
+	      data: [42.0, 43.3, 39.3, 40.1, 39.7, 40.5, 37.9, 41.5, 40.9, 42.5, 44.9]
+	    },
+	    {
+	      type: 'line',
+	      name: '62.5-74.9%',
+	      data: [31.7, 28.0, 31.2, 31.5, 26.5, 33.0, 36.7, 32.9, 31.6, 36.7, 36.7]
+	    },
+	    {
+	      type: 'line',
+	      name: '75-87.4%',
+	      data: [21.0, 19.2, 22.5, 16.4, 16.2, 20.2, 30.7, 22.1, 29.8, 28.6, 34.7]
+	    },
+	    {
+	      type: 'line',
+	      name: '87.5-100%',
+	      data: [16.0, 15.0, 14.5, 13.9, 11.5, 13.6, 14.7, 15.8, 18.2, 21.0, 21.8]
+	    }
+   ],
+
+   tooltip: {
+      crosshairs: true,
+      shared: true,
+      useHTML: true,
+      valueSuffix: '%'
+  },
+
+});
+
+// Gap between highest and lowest income level
+
+var highschoolGap = new Highcharts.Chart({
+    chart: {
+      renderTo: 'HSgap',
+	  height: '300'
+    },
+    title: {
+      text: null
+    },
+
+    legend: {
+      enabled: false
+    },
+
+    xAxis: {
+      title: {
+        text: 'Year'
+      },
+      categories: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014' ],
+      labels: {
+                staggerLines: 2
+            }
+     },
+
+    yAxis: {
+      title: {
+        text: 'PERCENTAGE POINTS'
+      },
+      labels: {
+        overflow: 'justify'
+      },
+      min: 0,
+      max: 60,
+      tickInterval: 10
+    },
+
+    series: [
+	    {
+	      type: 'column',
+	      name: '%- point gap',
+	      data: [48.5, 49.9, 50.4, 48.6, 53.5, 53.5, 53.2, 54.2, 54.7, 50.1, 52.4]
+	    }
+   ],
+
+   tooltip: {
+      crosshairs: true,
+      shared: true,
+      useHTML: true
+  },
+
+});
+
+
+
+  
+</script>
+
+</body>

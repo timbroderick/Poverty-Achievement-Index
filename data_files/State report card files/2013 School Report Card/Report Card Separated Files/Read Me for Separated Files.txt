@@ -1,0 +1,29 @@
+Filename	   Content			Fields on Report Card Layout (column A)
+-----------	-----------------------------	--------------------------------------
+RC13p1.txt	General info 			Field 1-252
+RC13p2.txt	ACT				Field 1, Field 253-276
+RC13p3.txt	Instructional Setting		Field 1, Field 277-367
+RC13p4.txt	Teacher/Administor		Field 1, Field 368-453	
+RC13p5.txt	Finance				Field 1, Field 454-520
+RC13p6.txt	Pct Not Tested-Reading   	Field 1, Field 521-636
+RC13p7.txt	Pct Not Tested-Mathematics	Field 1, Field 637-748
+RC13p8.txt	Pct Not Tested-Science		Field 1, Field 749-860
+RC13p9.txt	Overall Performance		Field 1, Field 861-892
+RC13p10.txt	ISAT Grade 3			Field 1, Field 893-1404
+RC13p11.txt	ISAT Grade 4			Field 1, Field 1405-2172
+RC13p12.txt	ISAT Grade 5			Field 1, Field 2173-2684
+RC13p13.txt	ISAT Grade 6			Field 1, Field 2685-3196
+RC13p14.txt	ISAT Grade 7			Field 1, Field 3197-3964
+RC13p15.txt	ISAT Grade 8			Field 1, Field 3965-4476
+RC13p16.txt	PSAE				Field 1, Field 4477-5259
+RC13p17.txt	IAA Grade 3			Field 1, Field 5260-5707
+RC13p18.txt	IAA Grade 4			Field 1, Field 5708-6379
+RC13p19.txt	IAA Grade 5			Field 1, Field 6380-6827
+RC13p20.txt	IAA Grade 6			Field 1, Field 6828-7275
+RC13p21.txt	IAA Grade 7			Field 1, Field 7276-7947
+RC13p22.txt	IAA Grade 8			Field 1, Field 7948-8395
+RC13p23.txt	IAA Grade 11			Field 1, Field 8396-9067
+RC13p24.txt	AYP				Field 1, Field 9068-9498
+RC13p25.txt	Code				Field 1, Field 9499-9501
+RC13p26.txt	NAEP-State			Field 1, Field 9502-9669
+RC13p27.txt	Average Student Growth		Field 1, Field 9670-9675

@@ -1,0 +1,28 @@
+Filename	   Content			Fields on Report Card Layout (column A)
+-----------	-----------------------------	--------------------------------------
+RC10p1.txt	General info 			Field 1-176
+RC10p2.txt	ACT				Field 1, Field 177-196
+RC10p3.txt	Instructional Setting		Field 1, Field 197-284
+RC10p4.txt	Teacher/Administor		Field 1, Field 285-364	
+RC10p5.txt	Finance				Field 1, Field 365-431
+RC10p6.txt	Pct Not Tested-Reading & Math	Field 1, Field 432-587
+RC10p7.txt	Pct Not Tested-Science		Field 1, Field 588-691
+RC10p8.txt	Overall Performance		Field 1, Field 692-723
+RC10p9.txt	ISAT Grade 3			Field 1, Field 724-1203
+RC10p10.txt	ISAT Grade 4			Field 1, Field 1204-1923
+RC10p11.txt	ISAT Grade 5			Field 1, Field 1924-2403
+RC10p12.txt	ISAT Grade 6			Field 1, Field 2404-2883
+RC10p13.txt	ISAT Grade 7			Field 1, Field 2884-3603
+RC10p14.txt	ISAT Grade 8			Field 1, Field 3604-4083
+RC10p15.txt	PSAE				Field 1, Field 4084-4818
+RC10p16.txt	IAA Grade 3			Field 1, Field 4819-5234
+RC10p17.txt	IAA Grade 4			Field 1, Field 5235-5858
+RC10p18.txt	IAA Grade 5			Field 1, Field 5859-6274
+RC10p19.txt	IAA Grade 6			Field 1, Field 6275-6690
+RC10p20.txt	IAA Grade 7			Field 1, Field 6691-7314
+RC10p21.txt	IAA Grade 8			Field 1, Field 7315-7730
+RC10p22.txt	IAA Grade 11			Field 1, Field 7731-8354
+RC10p23.txt	AYP				Field 1, Field 8355-8773
+RC10p24.txt	Code				Field 1, Field 8774-8776
+RC10p25.txt	NAEP-State			Field 1, Field 8777-8928
+RC10p26.txt	Differentiated Accountability	Field 1, Field 8929-8934

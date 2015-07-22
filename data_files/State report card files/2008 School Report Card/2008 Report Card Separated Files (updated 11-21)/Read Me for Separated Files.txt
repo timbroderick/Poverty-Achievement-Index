@@ -1,0 +1,26 @@
+Filename	   Content			Fields on Report Card Layout (column A)
+-----------	-----------------------------	--------------------------------------
+RC08p1.txt	General info 			Field 1-172
+RC08p2.txt	ACT				Field 1, Field 173-192
+RC08p3.txt	Instructional Setting		Field 1, Field 193-280
+RC08p4.txt	Teacher/Administor		Field 1, Field 281-360	
+RC08p5.txt	Finance				Field 1, Field 361-427
+RC08p6.txt	Pct Not Tested-Reading & Math	Field 1, Field 428-583
+RC08p7.txt	Pct Not Tested-Science		Field 1, Field 584-687
+RC08p8.txt	Overall Performance		Field 1, Field 688-719
+RC08p9.txt	ISAT Grade 3			Field 1, Field 720-1199
+RC08p10.txt	ISAT Grade 4			Field 1, Field 1200-1919
+RC08p11.txt	ISAT Grade 5			Field 1, Field 1920-2399
+RC08p12.txt	ISAT Grade 6			Field 1, Field 2400-2879
+RC08p13.txt	ISAT Grade 7			Field 1, Field 2880-3599
+RC08p14.txt	ISAT Grade 8			Field 1, Field 3600-4079
+RC08p15.txt	PSAE				Field 1, Field 4080-4814
+RC08p16.txt	IAA Grade 3			Field 1, Field 4815-5230
+RC08p17.txt	IAA Grade 4			Field 1, Field 5231-5854
+RC08p18.txt	IAA Grade 5			Field 1, Field 5855-6270
+RC08p19.txt	IAA Grade 6			Field 1, Field 6271-6686
+RC08p20.txt	IAA Grade 7			Field 1, Field 6687-7310
+RC08p21.txt	IAA Grade 8			Field 1, Field 7311-7726
+RC08p22.txt	IAA Grade 11			Field 1, Field 7727-8350
+RC08p23.txt	AYP				Field 1, Field 8351-8769
+RC08p24.txt	Code				Field 1, Field 8770-8772

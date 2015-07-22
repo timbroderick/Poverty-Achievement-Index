@@ -1,0 +1,28 @@
+Filename	   Content		Fields on Report Card Layout (column A)
+-----------	---------------		---------------------------------------
+rc04p1.txt	General info 		field 1-168
+rc04p2.txt	ACT			field 1, field 169-196
+rc04p3.txt	Instructional Setting	field 1, field 197-268
+rc04p4.txt	Teacher/Administor	field 1, field 269-338	
+rc04p5.txt	Finance			field 1, field 339-405
+rc04p6.txt	Pct Not Tested		field 1, field 406-561
+rc04p7.txt	Overall Performance	field 1, field 562-603
+rc04p8_txt	Grade 2 Test		field 1, field 604-663
+rc04p9.txt	ISAT Grade 3		field 1, field 664-1383
+rc04p10.txt	ISAT Grade 4		field 1, field 1384-1863
+rc04p11.txt	ISAT Grade 5		field 1, field 1864-2583
+rc04p12.txt	ISAT Grade 7		field 1, field 2584-3063
+rc04p13.txt	ISAT Grade 8		field 1, field 3064-3783
+rc04p14.txt	PSAE			field 1, field 3784-5006
+rc04p15.txt	IMAGE Grade 3		field 1, field 5007-5678
+rc04p16.txt	IMAGE Grade 5		field 1, field 5679-6350
+rc04p17.txt	IMAGE Grade 8		field 1, field 6351-7022
+rc04p18.txt	IMAGE Grade 11		field 1, field 7023-7694
+rc04p19.txt	IAA Grade 3		field 1, field 7695-8318
+rc04p20.txt	IAA Grade 4		field 1, field 8319-8734
+rc04p21.txt	IAA Grade 5		field 1, field 8735-9358
+rc04p22.txt	IAA Grade 7		field 1, field 9359-9774
+rc04p23.txt	IAA Grade 8		field 1, field 9775-10398
+rc04p24.txt	IAA Grade 11		field 1, field 10399-11438
+rc04p25.txt	AYP			field 1, field 11439-11720
+rc04p26.txt	Code			field 1, field 11721-11723
