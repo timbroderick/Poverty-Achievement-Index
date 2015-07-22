@@ -15,6 +15,8 @@ dependencies include:
 - jquery, jquery ui and jquery [datatables](https://www.datatables.net/)
 - [highcharts.js.](http://www.highcharts.com) Please consult their [license](http://shop.highsoft.com/highcharts.html) for appropriate use.
 
+coming soon:
+- Python files
 
 License
 =======
